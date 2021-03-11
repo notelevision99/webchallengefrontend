@@ -96,7 +96,7 @@ function Header() {
                             <NavLink to='/dich-vu-nong-nghiep'>DV nông nghiệp</NavLink>
                         </li>
                         <li className='cate-item'>
-                            <NavLink to='/r&d'>R&D</NavLink>
+                            <NavLink to='/r-d'>R&D</NavLink>
                         </li>
                         <li className='cate-item'>
                             <NavLink to='lien-he'>Liên hệ</NavLink>

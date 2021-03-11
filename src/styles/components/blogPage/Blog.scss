@@ -4,18 +4,44 @@
 	display: block;
 
 	.blog-card {
-		margin: 2rem;
+		position: relative;
+		margin: 2rem 0rem; 
 		display: flex;
+		height: 15rem;
 
-		
 		h1 {
 			margin-left: 1.6rem;
 		}
 
+		h3 {
+			margin-left: 1.6rem;
+			color: rgba(0, 0, 0, 0.5);
+		}
+
+		.blog-date {
+			position: absolute;
+			bottom: 0rem;
+			padding: 1rem;
+
+			color: white;
+			font-size: medium;
+
+			width: fit-content;
+			background-color: rgba(0, 0, 0, 0.7);
+			border-radius: 0.5rem;
+			box-shadow: 0 5px 11px 0 rgba(0,0,0,.18),0 4px 15px 0 rgba(0,0,0,.15)!important;
+
+		}
 		img {
 			border-radius: 0.5rem;
 			box-shadow: 0 5px 11px 0 rgba(0,0,0,.18),0 4px 15px 0 rgba(0,0,0,.15)!important;
-			width: 30rem;
+			width: 25rem;
 		}
 	}
+}
+
+.content-blog {
+	margin: 3.6rem;
+	margin-bottom: 20rem;
+	font-size: 2rem;
 }
