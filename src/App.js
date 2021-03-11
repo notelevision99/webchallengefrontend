@@ -7,11 +7,11 @@ import ListAdmins from './components/atom/admin/users/ListAdmins';
 import CreateAdmin from './components/atom/admin/users/CreateAdmin';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import Product from './components/atom/admin/products/Product';
+import Product from './components/atom/admin/Products/Product';
 import { Switch } from 'react-router-dom';
 import Home from './components/atom/admin/home/Home';
-import CreateProduct from './components/atom/admin/products/CreateProduct';
-import EditProduct from './components/atom/admin/products/EditProduct';
+import CreateProduct from './components/atom/admin/Products/CreateProduct';
+import EditProduct from './components/atom/admin/Products/EditProduct';
 import ProtectedRoute from './helpers/admin/checkRolesAuth';
 import EditCurrentAdmin from './components/atom/admin/users/EditCurrentAdmin';
 import Banners from './components/atom/admin/banners/Banners';
