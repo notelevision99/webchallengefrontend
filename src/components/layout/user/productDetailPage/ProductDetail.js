@@ -85,14 +85,8 @@ function ProductDetail() {
                                 <strong>Trọng lượng</strong>:&nbsp;{prodDetail.weight} kg
                             </li>
                             <li>
-                                <strong>Đặc&nbsp;điểm:</strong>&nbsp;Chiều cao cây 100-110 cm, phiến lá phẳng đứng, gọn
-                                khóm, màu xanh đậm, đẻ nhánh trung bình. Chống đổ khá, chống chịu trung bình với một số
-                                loại sâu bệnh hại chính (đạo ôn, khô vằn, bạc lá…), phạm vi thích ứng rộng.
-                            </li>
-                            <li>
-                                <strong>Chất lượng</strong>:&nbsp;Hạt thon, dài, mỏ cong, màu vàng sáng, khối lượng 1000
-                                hạt 20-21 gram, hạt gạo trong, cơm trắng, bóng, mềm, vị đậm.
-                            </li>
+                               {prodDetail.description}
+                            </li>        
                         </ul>
                         <br />
                         <h1>
