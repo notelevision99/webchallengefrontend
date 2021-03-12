@@ -85,7 +85,7 @@ function ProductDetail() {
                                 <strong>Trọng lượng</strong>:&nbsp;{prodDetail.weight} kg
                             </li>
                             <li>
-                               {prodDetail.description}
+                            <p dangerouslySetInnerHTML={{ __html: prodDetail.description }} />
                             </li>        
                         </ul>
                         <br />
