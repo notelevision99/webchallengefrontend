@@ -37,6 +37,9 @@ import LoginPage from './pages/LoginPage';
 import SignUp from './pages/SignUpPage';
 import AboutPage from './pages/AboutPage';
 import NewsPage from './pages/NewsPage';
+import NewsDetailPage from './pages/NewsDetailPage';
+import RDPage from './pages/RDPage';
+import RDDetailPage from './pages/RDDetailPage';
 
 export default class App extends Component {
     render() {
@@ -73,6 +76,12 @@ export default class App extends Component {
                         <Footer />
                     </Route>
 
+                    <Route path='/tin-tuc/:urlSeo'>
+                        <Header />
+                        <NewsDetailPage />
+                        <Footer />
+                    </Route>
+
                     <Route exact path='/san-pham'>
                         <Header />
                         <ProductPage />
@@ -82,6 +91,18 @@ export default class App extends Component {
                     <Route path='/san-pham/:urlSeo'>
                         <Header />
                         <ProductDetailPage />
+                        <Footer />
+                    </Route>
+
+                    <Route exact path='/r-d'>
+                        <Header />
+                        <RDPage />
+                        <Footer />
+                    </Route>
+
+                    <Route exact path='/r-d/:urlSeo'>
+                        <Header />
+                        <RDDetailPage />
                         <Footer />
                     </Route>
 

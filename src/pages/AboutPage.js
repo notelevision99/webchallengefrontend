@@ -9,7 +9,7 @@ function AboutPage() {
                 <div className='underlined-category-title'></div>
             </h1>
 
-            <div className='info-detail'>
+            <div className='content-blog'>
                 {/* ==== Test ==== */}
                 <p dir='ltr'>
                     Thành lập năm 1968, là DN độc lập trực thuộc Bộ NN và PTNT, thực hiện chủ trương của Đảng và Chính
