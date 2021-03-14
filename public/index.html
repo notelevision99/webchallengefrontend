@@ -100,17 +100,8 @@
   <body class="hold-transition sidebar-mini">
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root">
-      <div class="wrapper"></div>  
-      <div id="fb-root"></div>
-    <div class="fb-customerchat"
-        attribution="setup_tool"
-        page_id="2360198777531909"
-  theme_color="#67b868"
-  logged_in_greeting="Xin chào. Rất vui được hỗ trợ bạn!!!"
-  logged_out_greeting="Xin chào. Rất vui được hỗ trợ bạn!!!">
-      </div>  
+      <div class="wrapper"></div>
     </div>
-    
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -155,22 +146,22 @@
           responsive: true,
         });
       });
-      //Chat FB Plugin
-      window.fbAsyncInit = function() {
-          FB.init({
-            xfbml            : true,
-            version          : 'v10.0'
-          });
-        };
-
-        (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-      //End Chat FB Plugin
+      
     </script>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml            : true,
+          version          : 'v10.0'
+        });
+      };
+
+      (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
   </body>
 </html>

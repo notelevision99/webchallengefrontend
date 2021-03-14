@@ -44,10 +44,17 @@ import RDDetailPage from './pages/RDDetailPage';
 export default class App extends Component {
     render() {
         return (
-            <Router>
+            <Router>  
+                <div id="fb-root"></div>     
+                <div className="fb-customerchat"
+                    attribution="setup_tool"
+                    page_id="2360198777531909"
+                    theme_color="#67b868"
+                    logged_in_greeting="Xin chào. Rất vui được hỗ trợ bạn!!!"
+                    logged_out_greeting="Xin chào. Rất vui được hỗ trợ bạn!!!">
+                </div>
                 <Switch>
                     {/* ----------- Client ----------- */}
-
                     <Route exact path='/'>
                         <Header />
                         <HomePage />
