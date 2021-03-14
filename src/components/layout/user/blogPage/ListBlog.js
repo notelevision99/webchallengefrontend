@@ -24,20 +24,21 @@ function ListBlog(props) {
     return (
         <>
             <div className='blog-grid'>
+                <h1 className='blog-title'>DANH SÁCH {props.title}</h1>
                 {blogs.map((blog) => (
                     <>
                         <br />
                         <div className='blog-card'>
                             <img src={blog.photoUrl} />
-                            <div>
+                            <div className='blog-description'>
                                 <h1 onClick={() => onClickBlog(blog.blogId)}>{blog.title}</h1>
 
-                                <h3>{blog.shortDescription} </h3>
-                                <h3 className='blog-date'>
-                                    <strong>Ngày đăng: </strong>
-                                    {new Date(blog.createdDate).toLocaleDateString()}
-                                </h3>
+                                <h3>{blog.shortDescription}</h3>
                             </div>
+                            <h3 className='blog-date'>
+                                <strong>Ngày đăng: </strong>
+                                {new Date(blog.createdDate).toLocaleDateString()}
+                            </h3>
                         </div>
                         <br />
                         <hr />
