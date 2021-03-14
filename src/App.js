@@ -45,6 +45,7 @@ export default class App extends Component {
     render() {
         return (
             <Router>  
+                {/** -------------Chat FB Plugin --------------- */}
                 <div id="fb-root"></div>     
                 <div className="fb-customerchat"
                     attribution="setup_tool"
@@ -53,6 +54,7 @@ export default class App extends Component {
                     logged_in_greeting="Xin chào. Rất vui được hỗ trợ bạn!!!"
                     logged_out_greeting="Xin chào. Rất vui được hỗ trợ bạn!!!">
                 </div>
+                {/** ------------ End Chat FB Plugin ------------ */}
                 <Switch>
                     {/* ----------- Client ----------- */}
                     <Route exact path='/'>
