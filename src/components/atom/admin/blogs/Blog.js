@@ -186,3 +186,4 @@ export default class ListCategories extends React.Component {
         );
     }
 }
+
