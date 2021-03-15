@@ -1,7 +1,6 @@
 .blog-grid {
-	justify-items: left;
-	margin:4rem;
-	display: block;
+	width: 80%;
+	margin: 5rem auto;
 
 	.blog-card {
 		position: relative;
@@ -9,18 +8,23 @@
 		display: flex;
 		height: 15rem;
 
-		h1 {
-			margin-left: 1.6rem;
+		.blog-description {
+			h1 {
+				cursor: pointer;
+				margin-left: 1.6rem;
+			}
+	
+			h3 {
+				margin-left: 1.6rem;
+				color: rgba(0, 0, 0, 0.5);
+			}	
 		}
 
-		h3 {
-			margin-left: 1.6rem;
-			color: rgba(0, 0, 0, 0.5);
-		}
 
 		.blog-date {
 			position: absolute;
 			bottom: 0rem;
+			left: 26.5rem;
 			padding: 1rem;
 
 			color: white;
@@ -40,8 +44,40 @@
 	}
 }
 
-.content-blog {
-	margin: 3.6rem;
-	margin-bottom: 20rem;
-	font-size: 2rem;
+.blog-title {
+	color: $primary;
+	font-weight: bold;
+	text-align: center;
+	text-transform: uppercase;
+	margin: 5rem 25%;
+	padding-bottom: 2rem;
+	border-bottom: 0.2rem solid rgb(0,91,54);
+}
+
+@media (max-width: 600px) {
+	.blog-grid { 
+		.blog-card {
+			img {
+				width: 10rem;
+				height: 9rem;
+			}
+			.blog-date {
+				display: none;
+			}
+		} 
+	}
+}
+
+@media (max-width: 900px) {
+	.blog-grid { 
+		.blog-card {
+			img {
+				width: 10rem;
+				height: 9rem;
+			}
+			.blog-date {
+				left: auto;
+			}
+		} 
+	}
 }
