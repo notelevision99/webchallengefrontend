@@ -21,6 +21,7 @@ export default class CreateBlog extends React.Component {
                 title: '',
                 shortDescription: '',
                 content: '',
+                urlSeoBlog: '',
                 blogCategoryId: 1,
             },
             categoriesBlog: [],
@@ -284,8 +285,23 @@ export default class CreateBlog extends React.Component {
                                                     )}
                                                 </div>
                                             </div>
+                                            
                                         }
+                                        <div className='col-md-6'>
+                                            <div className='form-group'>
+                                                <label>Url Seo</label>
+                                                <InputForm
+                                                    className='form-control'
+                                                    placeholder='Nhập Url Seo'
+                                                    name='urlSeoBlog'
+                                                    value={this.state.blogInfo.urlSeoBlog}
+                                                    onChange={this.handleInputChange}
+                                                />
+                                            </div>
+                                        </div>
+
                                         {/**End Upload Blog Image */}
+                                        
                                     </div>
                                     {this.state.redirect && <Redirect to='/admin/blogs' />}
                                     <div className='col-md-12 pl-3 pb-5'>
