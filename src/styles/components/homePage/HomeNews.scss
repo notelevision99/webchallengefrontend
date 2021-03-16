@@ -4,6 +4,7 @@
   margin: 15rem auto;
 
   display: flex;
+  justify-content: space-between;
 
   &__lasted {
     width: 50%;
@@ -34,6 +35,10 @@
       &--title {
         font-size: 1.8rem;
         padding: 1rem 0;
+
+        @media screen and (max-width: $sm-min) {
+          font-size: 1.6rem;
+        }
       }
 
       &--date {
@@ -46,8 +51,6 @@
     &--viewmore {
       margin-top: 2rem;
 
-      color: $lightGreen;
-
       font-size: 1.6rem;
       font-weight: bold;
 
@@ -56,9 +59,17 @@
         color: $primary;
       }
 
+      a {
+        color: $lightGreen;
+      }
+
       .MuiSvgIcon-root {
         font-size: 3rem;
       }
+    }
+
+    @media screen and (max-width: $sm-min) {
+      width: 40%;
     }
   }
 
@@ -67,7 +78,7 @@
 
     img {
       width: fit-content;
-      height: fit-content;
+      height: 100%;
       margin-left: auto;
     }
   }

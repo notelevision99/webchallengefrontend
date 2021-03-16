@@ -1,8 +1,12 @@
 .introduce {
   width: 60%;
-  margin: 33rem auto 4rem;
+  margin: 33rem auto 6rem;
 
   text-align: center;
+
+  .test {
+    height: 100%;
+  }
 
   &--title {
     font-size: 3.6rem;

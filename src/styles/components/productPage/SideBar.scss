@@ -1,0 +1,126 @@
+.sidebar {
+  width: 20%;
+
+  &__box {
+    width: 80%;
+    margin: auto;
+
+    .cate {
+      margin-bottom: 30px;
+
+      input {
+        display: none;
+      }
+
+      &:last-child {
+        margin-bottom: 6rem;
+      }
+
+      &--title {
+        //margin: 2rem 0;
+        font-size: 2rem;
+      }
+
+      &--list {
+        .check-box {
+          margin: 1rem 0;
+
+          small {
+            font-size: 1.4rem;
+            margin-left: 0.5rem;
+          }
+
+          .cbx {
+            display: flex;
+            align-items: center;
+
+            margin: auto;
+
+            cursor: pointer;
+
+            span {
+              display: inline-block;
+              vertical-align: middle;
+              transform: translate3d(0, 0, 0);
+              &:first-child {
+                position: relative;
+                width: 1.8rem;
+                height: 1.8rem;
+                border-radius: 0.3rem;
+                transform: scale(1);
+                vertical-align: middle;
+                border: 0.1rem solid #9098a9;
+                transition: all 0.2s ease;
+
+                svg {
+                  position: absolute;
+                  top: 0.3rem;
+                  left: 0.2rem;
+                  fill: none;
+                  stroke: #ffffff;
+                  stroke-width: 2;
+                  stroke-linecap: round;
+                  stroke-linejoin: round;
+                  stroke-dasharray: 1.6rem;
+                  stroke-dashoffset: 1.6rem;
+                  transition: all 0.3s ease;
+                  transition-delay: 0.1s;
+                  transform: translate3d(0, 0, 0);
+                }
+
+                &:before {
+                  content: "";
+                  width: 100%;
+                  height: 100%;
+                  background: $lightGreen;
+                  display: block;
+                  transform: scale(0);
+                  opacity: 1;
+                  border-radius: 50%;
+                }
+              }
+              &:last-child {
+                padding-left: 0.8rem;
+              }
+            }
+            &:hover {
+              span {
+                border-color: $lightGreen;
+              }
+            }
+          }
+
+          .inp-cbx {
+            &:checked {
+              + {
+                .cbx {
+                  span {
+                    &:first-child {
+                      background: $lightGreen;
+                      border-color: $lightGreen;
+                      animation: wave 0.4s ease;
+                      svg {
+                        stroke-dashoffset: 0;
+                      }
+                      &:before {
+                        transform: scale(3.5);
+                        opacity: 0;
+                        transition: all 0.6s ease;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes wave {
+  50% {
+    transform: scale(0.9);
+  }
+}

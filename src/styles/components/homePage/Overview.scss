@@ -5,6 +5,24 @@
 
     position: relative;
 
+    .ov-hover {
+      width: calc(80% / 3);
+      height: 35rem;
+      transition: all 0.3s;
+
+      &:hover {
+        transform: scale(0.95);
+
+        .v-icon {
+          transform: scale(0.8);
+        }
+      }
+
+      &:nth-child(2) {
+        margin: 0 0.5rem;
+      }
+    }
+
     .vision {
       @include flexbox(center, center, nowrap);
 
@@ -15,8 +33,8 @@
       z-index: 10;
 
       &__box {
-        width: calc(80% / 3);
-        height: 33rem;
+        width: 100%;
+        height: 100%;
 
         background: $primary;
         color: $white;
@@ -25,18 +43,6 @@
         box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.75);
 
         transition: all 0.3s;
-
-        &:nth-child(2) {
-          margin: 0 0.5rem;
-        }
-
-        &:hover {
-          transform: scale(0.95);
-
-          .v-icon {
-            transform: scale(0.8);
-          }
-        }
 
         &--content {
           text-align: center;
@@ -49,8 +55,8 @@
             margin: auto;
             transition: all 0.3s;
 
-            img {
-              color: red;
+            @media screen and (max-width: 992px) {
+              width: 8rem;
             }
           }
 
@@ -68,10 +74,18 @@
               height: 0.1rem;
               background: $white;
             }
+
+            @media screen and (max-width: 992px) {
+              font-size: 2rem;
+            }
           }
 
           .v-des {
             font-size: 1.4rem;
+
+            @media screen and (max-width: 992px) {
+              font-size: 1.2rem;
+            }
           }
         }
       }

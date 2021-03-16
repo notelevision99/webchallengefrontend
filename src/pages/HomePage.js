@@ -1,6 +1,7 @@
 import React from "react";
 import BusinessAreas from "../components/layout/user/homePage/BusinessAreas";
 import BusinessProduct from "../components/layout/user/homePage/BusinessProduct";
+import CounterUp from "../components/layout/user/homePage/CounterUp";
 import HomeNews from "../components/layout/user/homePage/HomeNews";
 import Introduce from "../components/layout/user/homePage/Introduce";
 
@@ -15,6 +16,7 @@ function HomePage() {
       <Slide />
       <Overview />
       <Introduce />
+      <CounterUp />
       <Technology />
       <HomeNews />
       <BusinessProduct />

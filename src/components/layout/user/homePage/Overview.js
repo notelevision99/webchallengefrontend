@@ -1,19 +1,6 @@
 import React from "react";
-
-import SwiperCore, {
-  Navigation,
-  Pagination,
-  Scrollbar,
-  A11y,
-  Autoplay,
-} from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
-import "swiper/swiper.scss";
-import "swiper/components/navigation/navigation.scss";
-import "swiper/components/pagination/pagination.scss";
-import "swiper/components/scrollbar/scrollbar.scss";
+import Rotate from "react-reveal/Rotate";
+import Fade from "react-reveal/Fade";
 
 //Images
 import VisionImage from "../../../../assets/images/vision/vision.png";
@@ -26,49 +13,62 @@ function Overview() {
     <div className="overview">
       <div className="overview__wrap">
         <div className="vision">
-          <div className="vision__box">
-            <div className="vision__box--content">
-              <div className="v-icon">
-                <img src={VisionImage} />
+          <div className="ov-hover">
+            <Rotate top left>
+              <div className="vision__box">
+                <div className="vision__box--content">
+                  <div className="v-icon">
+                    <img src={VisionImage} />
+                  </div>
+
+                  <h3 className="v-title">Tầm nhìn</h3>
+
+                  <p className="v-des">
+                    Vinaseed phấn đấu trở thành Tập đoàn cung cấp các giải pháp
+                    phát triển nông nghiệp bền vững hàng đầu Việt Nam, thực hiện
+                    giấc mơ cải thiện thu nhập và điều kiện sống của nông dân
+                    Việt Nam.
+                  </p>
+                </div>
               </div>
-
-              <h3 className="v-title">Tầm nhìn</h3>
-
-              <p className="v-des">
-                Vinaseed phấn đấu trở thành Tập đoàn cung cấp các giải pháp phát
-                triển nông nghiệp bền vững hàng đầu Việt Nam, thực hiện giấc mơ
-                cải thiện thu nhập và điều kiện sống của nông dân Việt Nam.
-              </p>
-            </div>
+            </Rotate>
           </div>
 
-          <div className="vision__box">
-            <div className="vision__box--content">
-              <div className="v-icon">
-                <img src={MissionImage} />
+          <div className="ov-hover">
+            <Fade>
+              <div className="vision__box">
+                <div className="vision__box--content">
+                  <div className="v-icon">
+                    <img src={MissionImage} />
+                  </div>
+
+                  <h3 className="v-title">Sứ mệnh</h3>
+
+                  <p className="v-des">
+                    Bằng tất cả tình cảm và trách nhiệm của mình với cuộc sống
+                    con người và xã hội, Vinaseed cam kết mang đến các giải pháp
+                    phát triển nông nghiệp bền vững, nhằm thực hiện giấc mơ cải
+                    thiện thu nhập và điều kiện sống của nông dân Việt Nam.
+                  </p>
+                </div>
               </div>
-
-              <h3 className="v-title">Sứ mệnh</h3>
-
-              <p className="v-des">
-                Bằng tất cả tình cảm và trách nhiệm của mình với cuộc sống con
-                người và xã hội, Vinaseed cam kết mang đến các giải pháp phát
-                triển nông nghiệp bền vững, nhằm thực hiện giấc mơ cải thiện thu
-                nhập và điều kiện sống của nông dân Việt Nam.
-              </p>
-            </div>
+            </Fade>
           </div>
 
-          <div className="vision__box">
-            <div className="vision__box--content">
-              <div className="v-icon">
-                <img src={ValueImage} />
+          <div className="ov-hover">
+            <Rotate top right>
+              <div className="vision__box">
+                <div className="vision__box--content">
+                  <div className="v-icon">
+                    <img src={ValueImage} />
+                  </div>
+
+                  <h3 className="v-title">Giá trị cốt lõi</h3>
+
+                  <p className="v-des">Năng động – Sáng tạo – Chuyên nghiệp</p>
+                </div>
               </div>
-
-              <h3 className="v-title">Giá trị cốt lõi</h3>
-
-              <p className="v-des">Năng động – Sáng tạo – Chuyên nghiệp</p>
-            </div>
+            </Rotate>
           </div>
         </div>
 

@@ -13,13 +13,20 @@
 // Home page
 @import "./components/homePage/Slide.scss";
 @import "./components/homePage/Overview.scss";
+@import "./components/homePage/Introduce.scss";
+@import "./components/homePage/CounterUp.scss";
+@import "./components/homePage/Technology.scss";
 @import "./components/homePage/HomeNews.scss";
 @import "./components/homePage/BusinessProduct.scss";
-@import "./components/homePage/Technology.scss";
 @import "./components/homePage/BusinessAreas.scss";
 
 // Product Page
+@import "./pages/ProductPage.scss";
 @import "./components/productPage/ListProduct.scss";
+@import "./components/productPage/SideBar.scss";
+@import "./components/productPage/MainContent.scss";
+@import "./components/productPage/Tools.scss";
+@import "./components/productPage/ProductItem.scss";
 @import "./components/productDetailPage/ProductDetail.scss";
 
 //Blog Page

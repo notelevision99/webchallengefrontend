@@ -1,0 +1,74 @@
+.counter-up {
+  color: $white;
+  position: relative;
+
+  .parallax-banner {
+    position: absolute !important;
+    top: 0;
+    height: 100% !important;
+
+    z-index: -1;
+  }
+
+  &__layer {
+    background: rgba($color: #000000, $alpha: 0.6);
+  }
+
+  &__container {
+    width: 80%;
+    margin: auto;
+    padding: 7rem 0;
+  }
+
+  &__title {
+    width: 70%;
+    margin: auto;
+
+    text-align: center;
+
+    &--main {
+      font-size: 3.6rem;
+      padding-bottom: 2rem;
+    }
+
+    &--sub {
+      font-size: 1.6rem;
+    }
+  }
+
+  &__main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+
+    margin-top: 3.5rem;
+    .counter__box {
+      &--icon {
+        width: 9rem;
+        margin: auto;
+      }
+
+      &--subtitles {
+        .ctu-title {
+          font-weight: bold;
+          font-size: 1.6rem;
+          padding: 1rem 0 0.5rem 0;
+        }
+
+        .ctu-numb {
+          font-weight: bold;
+          font-size: 2.4rem;
+        }
+
+        .ctu-unit {
+          font-size: 1.6rem;
+          font-weight: 250;
+          padding-top: 0.5rem;
+        }
+      }
+    }
+  }
+}

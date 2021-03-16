@@ -1,0 +1,36 @@
+.tools {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 20px 0;
+
+  button {
+    background-color: #fff;
+    border: 1px solid #9591e9;
+    margin: 0 5px;
+    outline: none;
+
+    cursor: pointer;
+
+    transition: all 0.1s linear;
+
+    .MuiSvgIcon-root {
+      color: #9591e9;
+      padding-top: 2px;
+    }
+
+    &.active {
+      background-color: #eeeefd;
+    }
+  }
+
+  .notificate {
+    display: flex;
+    align-items: center;
+  }
+
+  .sort {
+    display: flex;
+  }
+}

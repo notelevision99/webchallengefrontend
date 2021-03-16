@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-
 import Slider from "react-slick";
+import Bounce from "react-reveal/Bounce";
 
 //style
 import "slick-carousel/slick/slick.css";
@@ -113,21 +113,25 @@ function Technology() {
 
   return (
     <div className="technology">
-      <div className="technology__img">
-        <Slider
-          nextArrow={<Arrow type="next" />}
-          prevArrow={<Arrow type="prev" />}
-          dots={true}
-          customPaging={customPaging}
-          appendDots={appendDots}
-        >
-          {renderSlides()}
-        </Slider>
-      </div>
+      <Bounce top>
+        <div className="technology__img">
+          <Slider
+            nextArrow={<Arrow type="next" />}
+            prevArrow={<Arrow type="prev" />}
+            dots={true}
+            customPaging={customPaging}
+            appendDots={appendDots}
+          >
+            {renderSlides()}
+          </Slider>
+        </div>
+      </Bounce>
 
       <div className="technology__text">
-        <h2 className="technology__text--title-main">công nghệ nổi bật</h2>
-        {renderText()}
+        <Bounce bottom>
+          <h2 className="technology__text--title-main">Công nghệ nổi bật</h2>
+          {renderText()}
+        </Bounce>
       </div>
     </div>
   );
