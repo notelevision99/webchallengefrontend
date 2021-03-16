@@ -39,18 +39,7 @@ function Footer() {
           <div className="ft-content--top">
             <div className="ft-c-item">
               <div className="ft-media">
-                {/* <div style={{ height: "100vh", width: "100%" }}>
-                  <GoogleMapReact
-                    defaultCenter={defaultProps.center}
-                    defaultZoom={this.props.zoom}
-                  >
-                    <AnyReactComponent
-                      lat={59.955413}
-                      lng={30.337844}
-                      text="My Marker"
-                    />
-                  </GoogleMapReact>
-                </div> */}
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.71394688724!2d106.85114981462374!3d10.909330592231427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174df02cd60c293%3A0xbc7937c0e332700c!2zQy5QLiBWaWV0bmFtIENvcnBvcmF0aW9uLCAyLCAyQSBTdHJlZXQgLCBCaWVuIEhvYSBJbmR1c3RyaWFsIFpvbmUgSUkgLEJpZW4gSG9hIENpdHksIERvbmcgTmFpIFByb3ZpbmNlLCBMb25nIELDrG5oIFTDom4sIFRow6BuaCBwaOG7kSBCacOqbiBIw7JhLCDEkOG7k25nIE5haSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1615713175160!5m2!1svi!2s" width="600" height="450" style={{width:"100%"}}  allowfullscreen="" loading="lazy"></iframe>
               </div>
             </div>
 
@@ -126,7 +115,7 @@ function Footer() {
               </div>
             </div>
           </div>
-
+        
           <div className="ft-content--policy">
             <small>Term & Condition</small>
             <small>Privacy Policy</small>

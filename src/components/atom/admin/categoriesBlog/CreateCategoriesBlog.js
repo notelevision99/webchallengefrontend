@@ -14,16 +14,19 @@ export default class CreateCategories extends React.Component {
         super(props);
         this.state = {
             categoryBlogName: '',
+            urlSeoCategoryBlog:'',
             redirect: false,
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChangeCategoryName = this.handleChangeCategoryName.bind(this);
+        this.handleChangeUrlSeoCategoryBlog = this.handleChangeUrlSeoCategoryBlog.bind(this)
     }
 
     onCreateCategoriesBlog = () => {
         const urlToCreate = `${API_URL}/api/categoriesblog`;
         const categoryData = {
             categoryBlogName: this.state.categoryBlogName,
+            urlSeoCategoryBlog: this.state.urlSeoCategoryBlog,
         };
         axios
             .post(urlToCreate, categoryData, { withCredentials: true })
@@ -36,6 +39,13 @@ export default class CreateCategories extends React.Component {
         e.preventDefault();
         this.setState({
             categoryBlogName: e.target.value,
+        });
+    }
+
+    handleChangeUrlSeoCategoryBlog(e) {
+        e.preventDefault();
+        this.setState({
+            urlSeoCategoryBlog: e.target.value,
         });
     }
 
@@ -74,6 +84,18 @@ export default class CreateCategories extends React.Component {
                                                     type='text'
                                                     className='form-control'
                                                     placeholder='Nhập danh mục'
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className='card-body'>
+                                            <div className='form-group'>
+                                                <label htmlFor='exampleInputEmail1'>Url Seo</label>
+                                                <input
+                                                    value={this.state.urlSeoCategoryBlog}
+                                                    onChange={this.handleChangeUrlSeoCategoryBlog}
+                                                    type='text'
+                                                    className='form-control'
+                                                    placeholder='Nhập Url Seo'
                                                 />
                                             </div>
                                         </div>

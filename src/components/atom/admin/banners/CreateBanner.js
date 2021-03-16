@@ -8,11 +8,16 @@ import { API_URL } from "../../../../helpers/admin/urlCallAxios";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { showToastFailed, showToastSuccess } from '../../../../helpers/admin/toastNotify'
+import InputForm from '../../../helperComponent/InputForm'
 
 export default class CreateBanner extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            bannerInfo: {
+                widthBanner: "",
+                heightBanner: ""
+            },
             orderId: 0,
             selectedFile: [],
             showDetailsBannerUpload: false,
@@ -22,8 +27,17 @@ export default class CreateBanner extends React.Component {
         }
         this.handleOrderIdBanner = this.handleOrderIdBanner.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleInputChange = this.handleInputChange.bind(this);
 
     }
+
+    handleInputChange(e) {
+        e.preventDefault();
+        this.setState({
+            bannerInfo: Object.assign({}, this.state.bannerInfo, { [e.target.name]: e.target.value }),
+        });
+    }
+
     handleOrderIdBanner(e) {
         e.preventDefault()
         try {
@@ -51,7 +65,7 @@ export default class CreateBanner extends React.Component {
             'file',
             this.state.selectedFile
         )
-        const urlCreateBanner = `${API_URL}/api/banners/${this.state.orderId}`
+        const urlCreateBanner = `${API_URL}/api/banners/${this.state.orderId}/${this.state.bannerInfo.widthBanner}/${this.state.bannerInfo.heightBanner}`
        try {
         axios.post(urlCreateBanner, formData, { withCredentials: true })     
         
@@ -154,7 +168,27 @@ export default class CreateBanner extends React.Component {
 
                                                 </div>
 
-                                            </div>
+                                            </div>                                    
+                                            <div className='form-group'>
+                                                <label>Chiều dài banner</label>
+                                                <InputForm
+                                                    className='form-control'
+                                                    placeholder='Nhập chiều dài ảnh'
+                                                    name='widthBanner'
+                                                    value={this.state.bannerInfo.widthBanner}
+                                                    onChange={this.handleInputChange}
+                                                />
+                                            </div>       
+                                            <div className='form-group'>
+                                                <label>Chiều rộng banner</label>
+                                                <InputForm
+                                                    className='form-control'
+                                                    placeholder='Nhập chiều dài banner'
+                                                    name='heightBanner'
+                                                    value={this.state.bannerInfo.heightBanner}
+                                                    onChange={this.handleInputChange}
+                                                />
+                                            </div>                            
                                             {
                                                 this.state.showDetailsBannerUpload &&
                                                 <div className="form-group">
