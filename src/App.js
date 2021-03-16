@@ -36,10 +36,9 @@ import ProductDetailPage from './pages/ProductDetailPage';
 import LoginPage from './pages/LoginPage';
 import SignUp from './pages/SignUpPage';
 import AboutPage from './pages/AboutPage';
-import NewsPage from './pages/NewsPage';
-import NewsDetailPage from './pages/NewsDetailPage';
-import RDPage from './pages/RDPage';
-import RDDetailPage from './pages/RDDetailPage';
+import BlogPage from './pages/BlogPage';
+import BlogDetailPage from './pages/BlogDetailPage';
+import NoMatch from './pages/NoMatch';
 
 export default class App extends Component {
     render() {
@@ -79,18 +78,6 @@ export default class App extends Component {
                         <Footer />
                     </Route>
 
-                    <Route exact path='/tin-tuc'>
-                        <Header />
-                        <NewsPage />
-                        <Footer />
-                    </Route>
-
-                    <Route path='/tin-tuc/:urlSeo'>
-                        <Header />
-                        <NewsDetailPage />
-                        <Footer />
-                    </Route>
-
                     <Route exact path='/san-pham'>
                         <Header />
                         <ProductPage />
@@ -103,15 +90,15 @@ export default class App extends Component {
                         <Footer />
                     </Route>
 
-                    <Route exact path='/r-d'>
+                    <Route exact path='/bai-dang/:urlSeoCategoryBlog'>
                         <Header />
-                        <RDPage />
+                        <BlogPage />
                         <Footer />
                     </Route>
 
-                    <Route exact path='/r-d/:urlSeo'>
+                    <Route exact path='/bai-dang/:urlSeoCategoryBlog/:urlSeoBlog'>
                         <Header />
-                        <RDDetailPage />
+                        <BlogDetailPage />
                         <Footer />
                     </Route>
 
@@ -154,6 +141,10 @@ export default class App extends Component {
                     />
 
                     {/* -----x----- Admin -----x----- */}
+
+                    <Route exact path='*'>
+                        <NoMatch />
+                    </Route>
                 </Switch>
             </Router>
         );

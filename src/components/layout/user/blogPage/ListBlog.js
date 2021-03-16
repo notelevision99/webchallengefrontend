@@ -1,31 +1,19 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-import { useHistory } from 'react-router';
-import { API_URL } from '../../../../helpers/user/urlCallAxios';
+import Pagination from 'react-js-pagination';
+import { useHistory, useParams } from 'react-router';
 
 function ListBlog(props) {
     const history = useHistory();
-
-    const categoryBlogId = props.categoryBlogId;
-    const [blogs, setBlogs] = useState([]);
-
-    useEffect(() => {
-        const urlblogs = `${API_URL}/api/blogs/categoryblogs/${categoryBlogId}?&pageNumer=1&pageSize=10`;
-
-        axios.get(urlblogs, { withCredentials: true }).then((res) => {
-            setBlogs(res.data.data);
-        });
-    }, [categoryBlogId]);
+    const { urlSeoCategoryBlog } = useParams();
 
     const onClickBlog = (id) => {
-        history.push(props.urlCurrent + '/' + id);
+        history.push('/bai-dang/' + urlSeoCategoryBlog + '/' + id);
     };
 
     return (
         <>
             <div className='blog-grid'>
                 <h1 className='blog-title'>DANH SÁCH {props.title}</h1>
-                {blogs.map((blog) => (
+                {props.blogs.map((blog) => (
                     <>
                         <br />
                         <div className='blog-card'>
@@ -44,6 +32,22 @@ function ListBlog(props) {
                         <hr />
                     </>
                 ))}
+                <div className='row-pagination'>
+                    <Pagination
+                        innerClass='pagination pagination-xl m-0'
+                        itemClass='page-item'
+                        linkClass='page-link'
+                        nextPageText={<i class='fas fa-step-forward'></i>}
+                        prevPageText={<i class='fas fa-step-backward'></i>}
+                        lastPageText={<i class='fas fa-fast-forward'></i>}
+                        firstPageText={<i class='fas fa-fast-backward'></i>}
+                        activePage={props.activePage}
+                        itemsCountPerPage={props.pageSize}
+                        totalItemsCount={props.totalItem}
+                        pageRangeDisplayed={8}
+                        onChange={props.handlePageChange()}
+                    />
+                </div>
             </div>
         </>
     );

@@ -1,22 +1,23 @@
+import { NavLink } from 'react-router-dom';
+
 function CategoryCard(props) {
     return (
         <>
-            <div className='card'>
-                <div style={{ background: 'transparent' }} className='card-header'>
-                    <h3
-                        style={{
-                            color: 'rgba(139, 51, 0, 0.8)',
-                            fontWeight: 'bold',
-                        }}
-                        className='card-title'>
-                        {props.title}
-                    </h3>
+            <div className='category-card'>
+                <div className='category-card-header'>
+                    <h3 className='category-card-title'>Danh mục</h3>
+                    <div className='line'></div>
                 </div>
-                <div className='card-body'>
+                <div className='category-card-body'>
                     <ul>
                         {props.categories.map((catrgory) => (
                             <li>
-                                <button className='item-categories-blog'>category</button>
+                                <NavLink
+                                    itemID={catrgory.urlSeoCategoryBlog}
+                                    to={'/bai-dang/' + catrgory.urlSeoCategoryBlog}
+                                    className='item-category'>
+                                    {catrgory.blogCategoriesName}
+                                </NavLink>
                             </li>
                         ))}
                     </ul>
