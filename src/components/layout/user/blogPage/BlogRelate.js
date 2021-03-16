@@ -1,10 +1,11 @@
-import { useHistory } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 
 function BlogRelate(props) {
     const history = useHistory();
+    const { urlSeoCategoryBlog } = useParams();
 
     const onClickBlog = (id) => {
-        history.push('/tin-tuc/' + id);
+        history.push('/bai-dang/' + urlSeoCategoryBlog + '/' + id);
     };
 
     return (
