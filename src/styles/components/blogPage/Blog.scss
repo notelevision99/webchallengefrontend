@@ -9,6 +9,9 @@
 		height: 15rem;
 
 		.blog-description {
+			height: 80%;
+			overflow: hidden;
+
 			h1 {
 				cursor: pointer;
 				margin-left: 1.6rem;
@@ -56,6 +59,8 @@
 
 @media (max-width: 600px) {
 	.blog-grid { 
+		width: 95%;
+
 		.blog-card {
 			img {
 				width: 10rem;
@@ -70,6 +75,8 @@
 
 @media (max-width: 900px) {
 	.blog-grid { 
+		width: 95%;
+
 		.blog-card {
 			img {
 				width: 10rem;

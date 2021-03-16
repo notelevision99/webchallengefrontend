@@ -85,7 +85,7 @@ function Header() {
                             <NavLink to='/san-pham'>Sản phẩm</NavLink>
                         </li>
                         <li className='cate-item'>
-                            <NavLink to='/hoat-dong'>Hoạt động</NavLink>
+                            <NavLink to='/bai-dang/hoat-dong'>Hoạt động</NavLink>
                         </li>
 
                         <li className='menu-logo'>
@@ -93,16 +93,16 @@ function Header() {
                         </li>
 
                         <li className='cate-item'>
-                            <NavLink to='/dich-vu-nong-nghiep'>DV nông nghiệp</NavLink>
+                            <NavLink to='/bai-dang/dich-vu-nong-nghiep'>DV nông nghiệp</NavLink>
                         </li>
                         <li className='cate-item'>
-                            <NavLink to='/r-d'>R&D</NavLink>
+                            <NavLink to='/bai-dang/r-d'>R&D</NavLink>
                         </li>
                         <li className='cate-item'>
-                            <NavLink to='lien-he'>Liên hệ</NavLink>
+                            <NavLink to='/lien-he'>Liên hệ</NavLink>
                         </li>
                         <li className='cate-item'>
-                            <NavLink to='tuyen-dung'></NavLink>
+                            <NavLink to='/bai-dang/tuyen-dung'></NavLink>
                         </li>
                     </ul>
                 </div>

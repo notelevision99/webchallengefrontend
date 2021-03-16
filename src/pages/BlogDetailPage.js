@@ -7,20 +7,22 @@ import BlogRelate from '../components/layout/user/blogPage/BlogRelate';
 import scrollToTop from '../helpers/user/ScrollToTop';
 import { API_URL } from '../helpers/user/urlCallAxios';
 
-function RDDetailPage() {
-    const { urlSeo } = useParams();
+function BlogDetailPage() {
+    // URL params
+    const { urlSeoBlog } = useParams();
+
     const [blogDetail, setBlogDetail] = useState({});
     const [blogsRelated, setBlogsRelated] = useState([]);
 
     useEffect(() => {
-        const urlblogs = `${API_URL}/api/blogs/${urlSeo}`;
+        const urlblogs = `${API_URL}/api/blogs/${urlSeoBlog}`;
 
         axios.get(urlblogs, { withCredentials: true }).then((res) => {
             setBlogDetail(res.data.item1);
             setBlogsRelated(res.data.item2);
             scrollToTop();
         });
-    }, [urlSeo]);
+    }, [urlSeoBlog]);
 
     return (
         <>
@@ -30,4 +32,4 @@ function RDDetailPage() {
         </>
     );
 }
-export default RDDetailPage;
+export default BlogDetailPage;

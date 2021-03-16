@@ -29,3 +29,40 @@
 	border-radius: 10px;
 	background-color: gray;
 }
+
+@media (max-width: 600px) {
+	.blog-related {
+		width: 95%;
+
+		.blog-grid { 	
+			.blog-card {
+				img {
+					width: 10rem;
+					height: 9rem;
+				}
+				.blog-date {
+					display: none;
+				}
+			} 
+		}
+	}
+}
+
+@media (max-width: 900px) {
+	.blog-related {
+		width: 95%;
+
+		.blog-grid { 
+			.blog-card {
+				img {
+					width: 10rem;
+					height: 9rem;
+				}
+				.blog-date {
+					left: auto;
+				}
+			} 
+		}
+	}
+	
+}
