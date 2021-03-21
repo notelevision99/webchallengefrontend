@@ -16,8 +16,8 @@ function BusinessProduct() {
   ];
 
   const renderSlides = () =>
-    products.map((num) => (
-      <div className="bp-item">
+    products.map((num, i) => (
+      <div className="bp-item" key={i}>
         <img src={num.image} alt="" />
 
         <h5 className="bp-item__name">{num.name}</h5>

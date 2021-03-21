@@ -1,0 +1,6 @@
+export const NAME_PAGE = {
+  PRODUCT_PAGE: {
+    GET_PRODUCTS: "GET_PRODUCTS",
+    GET_CATEGORY: "GET_CATEGORY",
+  },
+};
