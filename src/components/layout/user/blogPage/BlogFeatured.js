@@ -3,9 +3,11 @@ import { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router';
 import { API_URL } from '../../../../helpers/user/urlCallAxios';
 
+
 function BlogFeatured(props) {
     const history = useHistory();
     const { urlSeoCategoryBlog } = useParams();
+
     const onClickBlog = (id) => {
         history.push('/bai-dang/' + urlSeoCategoryBlog + '/' + id);
     };

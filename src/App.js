@@ -40,6 +40,8 @@ import AboutPage         from "./pages/AboutPage";
 import BlogPage          from "./pages/BlogPage";
 import BlogDetailPage    from "./pages/BlogDetailPage";
 import NoMatch           from "./pages/NoMatch";
+import CartPage from './pages/CartPage';
+import CheckoutPage from './pages/CheckoutPage';
 
 // Config
 import { DATA_STATUS } from "./utils/config";
@@ -154,6 +156,18 @@ function App() {
           <Footer />
         </Route>
 
+        <Route exact path='/gio-hang'>
+          <Header />
+          <CartPage />
+          <Footer />
+        </Route>
+
+        <Route exact path='/thanh-toan'>
+          <Header />
+          <CheckoutPage />
+          <Footer />
+        </Route>
+
         <Route path="/san-pham/:urlSeo">
           <Header />
           <ProductDetailPage />
@@ -248,5 +262,4 @@ function App() {
     </Router>
   );
 }
-
 export default App;
