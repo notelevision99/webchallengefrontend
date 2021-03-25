@@ -4,12 +4,16 @@ import "./styles/index.scss";
 import App from "./App";
 //import reportWebVitals from './reportWebVitals';
 import { ParallaxProvider } from "react-scroll-parallax";
+import { Provider } from "react-redux";
+import Store from "./redux/Store";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ParallaxProvider>
-      <App />
-    </ParallaxProvider>
+    <Provider store={Store}>
+      <ParallaxProvider>
+        <App />
+      </ParallaxProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );

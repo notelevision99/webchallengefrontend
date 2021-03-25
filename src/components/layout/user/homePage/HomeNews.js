@@ -31,8 +31,8 @@ function HomeNews() {
   ];
 
   const renderNews = () =>
-    newsArr.map((num) => (
-      <div className="hn-item">
+    newsArr.map((num, i) => (
+      <div className="hn-item" key={i}>
         <h5 className="hn-item--title">{num.title}</h5>
         <small className="hn-item--date">{num.date}</small>
       </div>

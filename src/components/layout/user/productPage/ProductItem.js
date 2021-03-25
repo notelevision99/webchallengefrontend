@@ -4,7 +4,7 @@ function ProductItem({ index, ele }) {
   return (
     <div className="product-item" key={index}>
       <div className="product-item__thumbnail">
-        <img src={ele.img} alt="" />
+        <img src={ele.photoUrl} alt="" />
 
         <div className="product-item__thumbnail--hover">
           <p className="hover-title">Chi tiết sản phẩm</p>
@@ -15,7 +15,7 @@ function ProductItem({ index, ele }) {
 
       <div className="product-item__info">
         <div className="product-item__info--name">
-          <h3>{ele.name}</h3>
+          <h3>{ele.categoryName}</h3>
         </div>
         <div className="product-item__info--price">
           <p>{ele.price}</p>

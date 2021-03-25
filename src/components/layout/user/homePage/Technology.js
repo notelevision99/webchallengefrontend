@@ -95,8 +95,8 @@ function Technology() {
   }
 
   const renderSlides = () =>
-    carousel.map((num) => (
-      <div className="cus-slide">
+    carousel.map((num, i) => (
+      <div className="cus-slide" key={i}>
         <div className="cus-slide__img">
           <img src={num.image} alt="" />
         </div>
