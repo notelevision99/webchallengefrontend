@@ -15,7 +15,7 @@ function ProductItem({ index, ele }) {
 
       <div className="product-item__info">
         <div className="product-item__info--name">
-          <h3>{ele.categoryName}</h3>
+          <h3>{ele.productName}</h3>
         </div>
         <div className="product-item__info--price">
           <p>{ele.price}</p>

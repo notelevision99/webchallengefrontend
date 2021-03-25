@@ -1,7 +1,7 @@
 import React from "react";
 import CheckBox from "./CheckBox";
 
-function SideBar({ categories, onCategory, companies, weights }) {
+function Sidebar({ categories, onCategory, companies, weights }) {
   let renderCateCheckBox = (data) => {
     let result = null;
     if (data) {
@@ -84,8 +84,8 @@ function SideBar({ categories, onCategory, companies, weights }) {
   };
 
   return (
-    <div className="sidebar">
-      <div className="sidebar__box">
+    <div className="sidebar-pp">
+      <div className="sidebar-pp__box">
         <div className="cate">
           <h5 className="cate--title">Danh mục </h5>
 
@@ -93,7 +93,7 @@ function SideBar({ categories, onCategory, companies, weights }) {
         </div>
       </div>
 
-      <div className="sidebar__box">
+      <div className="sidebar-pp__box">
         <div className="cate">
           <h5 className="cate--title">Công ty</h5>
 
@@ -101,7 +101,7 @@ function SideBar({ categories, onCategory, companies, weights }) {
         </div>
       </div>
 
-      <div className="sidebar__box">
+      <div className="sidebar-pp__box">
         <div className="cate">
           <h5 className="cate--title">Trọng lượng</h5>
 
@@ -112,4 +112,4 @@ function SideBar({ categories, onCategory, companies, weights }) {
   );
 }
 
-export default SideBar;
+export default Sidebar;
