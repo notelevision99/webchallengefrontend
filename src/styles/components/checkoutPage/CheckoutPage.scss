@@ -1,0 +1,135 @@
+.cart-container {
+	width: 100%;
+	min-height: 80vh;
+	padding: 2rem;
+	margin: auto;
+	padding-top: 10rem;
+
+	background-color: whitesmoke;
+
+	display: grid;
+	gap: 2rem;
+
+	.cart {
+		.card {
+			&-header {
+				background-color: white;
+			}
+
+			&-body {
+				.icon-edit{
+					border-radius: 0.2rem;
+					background-color: rgba(128, 128, 128, 0.2);
+					padding: 0.2rem;
+					float: right;
+					cursor: pointer;
+				}
+				.icon {
+					font-size: large;
+					color: $primary;
+					margin-right: 0.2rem;
+				}
+			}
+
+			&-footer {
+				background-color: white;
+				max-height: 40rem;
+				overflow-y: auto;
+	
+				.cart-item {
+					width: 100%;
+					display: table;
+		
+					&-left {
+						display: table-cell;
+						vertical-align: top;
+						width: 156px;
+					}
+		
+					&-middle {
+						display: table-cell;
+						vertical-align: top;
+						width: 60%;
+
+						padding-left: 1rem;
+						padding-right: 2rem;
+
+						input {
+							width: 4rem;
+						}
+					}
+		
+					&-right {
+						padding: 1rem;
+						width: fit-content;
+						vertical-align: middle;
+						display: table-cell;
+					}
+				}
+			}
+		}
+	}
+	
+	.cart-total {
+		.card {
+			&-header {
+				background-color: $primary;
+				color: white;
+				display: flex;
+				justify-content: center;
+			}
+
+			&-body {
+				display: grid;
+				grid-template-columns: 50% 50%;
+				
+				h3 {
+					text-align: left;
+				}
+
+				h4 {
+					text-align: right;
+				}
+			}
+
+			&-footer {
+				background-color: white;
+				text-align: center;
+
+				h3 {
+					font-weight: bold;
+					
+				}
+
+				button {
+					margin-top: 2rem;
+					padding: 0.5rem;
+					width: fit-content;
+
+					background: #f54646;
+					color: white;
+
+					border: none;
+					border-radius: 0.5rem;
+					outline: none;
+
+					font-weight: bold;
+					font-size: medium;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 900px) {
+	.cart-container { 
+		padding-left: 20%;
+		padding-right: 20%;
+
+		grid-template-columns: repeat(3, 1fr); 
+
+		.cart {
+			grid-column: 1 / 3;
+		}
+	}
+}

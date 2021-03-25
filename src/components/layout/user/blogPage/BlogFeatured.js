@@ -1,13 +1,11 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-import { useHistory } from 'react-router';
-import { API_URL } from '../../../../helpers/user/urlCallAxios';
+import { useHistory, useParams } from 'react-router';
 
 function BlogFeatured(props) {
     const history = useHistory();
+    const { urlSeoCategoryBlog } = useParams();
 
     const onClickBlog = (id) => {
-        history.push(props.urlCurrent + '/' + id);
+        history.push('/bai-dang/' + urlSeoCategoryBlog + '/' + id);
     };
 
     return (

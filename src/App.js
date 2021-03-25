@@ -39,20 +39,22 @@ import AboutPage from './pages/AboutPage';
 import BlogPage from './pages/BlogPage';
 import BlogDetailPage from './pages/BlogDetailPage';
 import NoMatch from './pages/NoMatch';
+import CartPage from './pages/CartPage';
+import CheckoutPage from './pages/CheckoutPage';
 
 export default class App extends Component {
     render() {
         return (
-            <Router>  
+            <Router>
                 {/** -------------Chat FB Plugin --------------- */}
-                <div id="fb-root"></div>     
-                <div className="fb-customerchat"
-                    attribution="setup_tool"
-                    page_id="2360198777531909"
-                    theme_color="#67b868"
-                    logged_in_greeting="Xin chào. Rất vui được hỗ trợ bạn!!!"
-                    logged_out_greeting="Xin chào. Rất vui được hỗ trợ bạn!!!">
-                </div>
+                <div id='fb-root'></div>
+                <div
+                    className='fb-customerchat'
+                    attribution='setup_tool'
+                    page_id='2360198777531909'
+                    theme_color='#67b868'
+                    logged_in_greeting='Xin chào. Rất vui được hỗ trợ bạn!!!'
+                    logged_out_greeting='Xin chào. Rất vui được hỗ trợ bạn!!!'></div>
                 {/** ------------ End Chat FB Plugin ------------ */}
                 <Switch>
                     {/* ----------- Client ----------- */}
@@ -87,6 +89,18 @@ export default class App extends Component {
                     <Route path='/san-pham/:urlSeo'>
                         <Header />
                         <ProductDetailPage />
+                        <Footer />
+                    </Route>
+
+                    <Route exact path='/gio-hang'>
+                        <Header />
+                        <CartPage />
+                        <Footer />
+                    </Route>
+
+                    <Route exact path='/thanh-toan'>
+                        <Header />
+                        <CheckoutPage />
                         <Footer />
                     </Route>
 

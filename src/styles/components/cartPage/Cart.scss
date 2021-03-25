@@ -1,0 +1,112 @@
+.cart-container {
+	width: 100%;
+	min-height: 80vh;
+	padding: 2rem;
+	margin: auto;
+	padding-top: 10rem;
+
+	background-color: whitesmoke;
+
+	display: grid;
+	gap: 2rem;
+
+	.cart {
+		.card {
+			&-header {
+				background-color: white;
+			}
+	
+			&-body {
+				max-height: 40rem;
+				overflow-y: auto;
+	
+				.cart-item {
+					width: 100%;
+					display: table;
+		
+					&-left {
+						display: table-cell;
+						vertical-align: top;
+						width: 156px;
+					}
+		
+					&-middle {
+						display: table-cell;
+						vertical-align: top;
+						width: 50%;
+
+						padding-left: 1rem;
+						padding-right: 2rem;
+
+						input {
+							width: 4rem;
+						}
+					}
+		
+					&-right {
+						padding: 1rem;
+						width: fit-content;
+						vertical-align: middle;
+						display: table-cell;
+					}
+
+					.icon-d {
+						padding: 1rem;
+						vertical-align: middle;
+						display: table-cell;
+						cursor: pointer;
+						color: #f54646;
+					}
+				}
+			}
+		}
+	}
+	
+	.cart-total {
+		.card {
+			&-header {
+				background-color: $primary;
+				color: white;
+			}
+			
+			&-body {
+				display: grid;
+				grid-template-columns: 50% 50%;
+				text-align: center;
+			}
+
+			&-footer {
+				background-color: white;
+				text-align: center;
+
+				button {
+					padding: 0.5rem;
+					width: fit-content;
+
+					background: #f54646;
+					color: white;
+
+					border: none;
+					border-radius: 0.5rem;
+					outline: none;
+
+					font-weight: bold;
+					font-size: medium;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 900px) {
+	.cart-container { 
+		padding-left: 20%;
+		padding-right: 20%;
+
+		grid-template-columns: repeat(3, 1fr); 
+
+		.cart {
+			grid-column: 1 / 3;
+		}
+	}
+}

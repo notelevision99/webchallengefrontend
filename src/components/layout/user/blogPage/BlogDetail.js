@@ -1,7 +1,7 @@
 function BlogDetail(props) {
     return (
         <>
-            <h1 ref={props.myRef} className='blog-title'>
+            <h1 className='blog-title'>
                 {props.title}
                 <div className='underlined-category-title'></div>
             </h1>
