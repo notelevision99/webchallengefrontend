@@ -1,9 +1,8 @@
 import { GetService } from "./Services";
 import { DATA_STATUS, DOMAIN } from "../utils/config";
 
-const GetProductERP = (pageNumber) => {
-  let pageSize = 9;
-  const URL = `${DOMAIN.URL}/products?&pageNumber=${pageNumber}&pageSize=${pageSize}`;
+const GetCompanyERP = () => {
+  const URL = `${DOMAIN.URL}/getfilterparams/getcompanies`;
 
   return new Promise((res, rej) => {
     GetService(URL)
@@ -22,27 +21,7 @@ const GetProductERP = (pageNumber) => {
   });
 };
 
-const GetCateProductERP = () => {
-  const URL = `${DOMAIN.URL}/categories`;
-
-  return new Promise((res, rej) => {
-    GetService(URL)
-      .then((resService) => {
-        res({
-          data: resService,
-          status: DATA_STATUS.SUCCESS,
-        });
-      })
-      .catch((rejService) => {
-        res({
-          status: DATA_STATUS.FAILED,
-          rej: rejService,
-        });
-      });
-  });
-};
-
-const FilterByCateERP = (cateId) => {
+const FilterByCpnERP = (cateId) => {
   let pageNumber = 1;
   let pageSize = 5;
   const URL = `${DOMAIN.URL}/categories/getproductsbycateid/${cateId}?pageNumber=${pageNumber}&pageSize=${pageSize}`;
@@ -64,4 +43,4 @@ const FilterByCateERP = (cateId) => {
   });
 };
 
-export { GetProductERP, GetCateProductERP, FilterByCateERP };
+export { GetCompanyERP, FilterByCpnERP };

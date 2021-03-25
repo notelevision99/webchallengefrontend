@@ -1,11 +1,14 @@
 import { DATA_STATUS } from "../../utils/config";
-import { GetProductERP, GetCateProductERP } from "../../services/ResProduct";
+import {
+  GetProductERP,
+  GetCateProductERP,
+  FilterByCateERP,
+} from "../../services/ResProduct";
 
 const GetProductBusiness = (pageNumber) => {
   try {
     return new Promise(async (res, rej) => {
       let allProduct = await GetProductERP(pageNumber);
-      console.log("all product business =>", allProduct);
 
       if (allProduct.status === DATA_STATUS.SUCCESS) {
         let customData = allProduct.data.data;
@@ -26,11 +29,10 @@ const GetProductBusiness = (pageNumber) => {
   }
 };
 
-const GetCateProductBusiness = (pageNumber) => {
+const GetCateProductBusiness = () => {
   try {
     return new Promise(async (res, rej) => {
-      let allCateProduct = await GetCateProductERP(pageNumber);
-      console.log("all product business =>", allCateProduct);
+      let allCateProduct = await GetCateProductERP();
 
       if (allCateProduct.status === DATA_STATUS.SUCCESS) {
         let customData = allCateProduct.data.data;
@@ -51,4 +53,28 @@ const GetCateProductBusiness = (pageNumber) => {
   }
 };
 
-export { GetProductBusiness, GetCateProductBusiness };
+const FilterByCateBusiness = (cateId) => {
+  try {
+    return new Promise(async (res, rej) => {
+      let filterred = await FilterByCateERP(cateId);
+
+      if (filterred.status === DATA_STATUS.SUCCESS) {
+        let customData = filterred.data.data;
+
+        res({
+          data: customData,
+          status: DATA_STATUS.SUCCESS,
+        });
+      } else {
+        rej(filterred);
+      }
+    });
+  } catch (error) {
+    error({
+      data: [],
+      status: DATA_STATUS.FAILED,
+    });
+  }
+};
+
+export { GetProductBusiness, GetCateProductBusiness, FilterByCateBusiness };
