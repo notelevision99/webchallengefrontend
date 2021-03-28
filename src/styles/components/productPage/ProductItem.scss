@@ -108,10 +108,11 @@
         position: relative;
 
         &:hover {
-          top: -0.3rem;
-
+          //top: -0.3rem; 
           box-shadow: 2px 2px 5px 0px $black;
-          transition: all 0.4s;
+          
+          transform: translate(-5px, -5px);
+          transition: all 0.3s;
         }
       }
     }

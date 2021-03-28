@@ -56,8 +56,16 @@ $mw-footer: 90%;
 
         margin: 2rem 0;
 
+        .t-left{
+          width: 50%;
+        }
+
+        .t-right{
+          width: 40%;
+        }
+
         .ft-c-item {
-          width: calc(100% / 3);
+          //width: calc(100% / 3);
 
           &__name {
             h4 {

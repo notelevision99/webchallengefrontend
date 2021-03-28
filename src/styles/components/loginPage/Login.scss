@@ -1,0 +1,212 @@
+@import url("https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap");
+
+$secondary: #59b97d;
+$white: #fff;
+$gray: #9b9b9b;
+
+.user-login {
+  display: flex;
+  align-items: center;
+
+  height: 100vh;
+  .image {
+    width: 50%;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__container {
+    width: 50%;
+
+    h3 {
+      font-family: "Luckiest Guy", cursive;
+      font-size: 3.5rem;
+
+      text-align: center;
+
+      padding-top: 20px;
+
+      color: $secondary;
+      text-shadow: 0 0.1em 20px rgba(0, 0, 0, 1),
+        0.05em -0.03em 0 rgba(0, 0, 0, 1), 0.05em 0.005em 0 rgba(0, 0, 0, 1),
+        0em 0.08em 0 rgba(0, 0, 0, 1), 0.05em 0.08em 0 rgba(0, 0, 0, 1),
+        0px -0.03em 0 rgba(0, 0, 0, 1), -0.03em -0.03em 0 rgba(0, 0, 0, 1),
+        -0.03em 0.08em 0 rgba(0, 0, 0, 1), -0.03em 0 0 rgba(0, 0, 0, 1);
+
+      span {
+        transform: scale(0.9);
+        display: inline-block;
+      }
+
+      span:first-child {
+        animation: bop 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards
+          infinite alternate;
+      }
+
+      span:last-child {
+        animation: bopB 1s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards
+          infinite alternate;
+      }
+    }
+
+    .form-input {
+      width: 70%;
+      height: 450px;
+      margin: auto;
+
+      border-radius: 50px;
+      background: #ffffff;
+      box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+
+      form {
+        .input {
+          width: 80%;
+          margin: 20px auto;
+
+          display: flex;
+          flex-direction: column;
+
+          &__box {
+            // position: relative;
+            // display: grid;
+            // grid-template-columns: 7% 93%;
+
+            color: #777;
+            padding-bottom: 7px;
+
+            margin: 1.5rem;
+            margin-top: 0.5rem;
+
+            //border-bottom: 1px solid #77c6fc;
+
+            .form__group {
+              position: relative;
+              padding: 15px 0 0;
+              margin-top: 10px;
+              width: 100%;
+            }
+
+            .form__field {
+              font-family: inherit;
+              width: 100%;
+              border: 0;
+              border-bottom: 2px solid $gray;
+              outline: 0;
+              font-size: 1.3rem;
+
+              padding: 7px 0;
+              background: transparent;
+              transition: border-color 0.2s;
+
+              &::placeholder {
+                color: transparent;
+              }
+
+              &:placeholder-shown ~ .form__label {
+                font-size: 1.3rem;
+                cursor: text;
+                top: 20px;
+              }
+            }
+
+            .form__label {
+              position: absolute;
+              top: 0;
+              display: flex;
+              align-items: center;
+              transition: 0.2s;
+              font-size: 1rem;
+              color: $gray;
+
+              .MuiSvgIcon-root {
+                margin-right: 0.3rem;
+              }
+            }
+
+            .form__field:focus {
+              ~ .form__label {
+                position: absolute;
+                top: 0;
+
+                transition: 0.2s;
+                font-size: 1.2rem;
+                color: $primary;
+                font-weight: 700;
+              }
+              padding-bottom: 0.6rem;
+              //font-weight: 700;
+              border-width: 0.3rem;
+              border-image: linear-gradient(to right, $primary, $secondary);
+              border-image-slice: 1;
+            }
+            /* reset input */
+            .form__field {
+              &:required,
+              &:invalid {
+                box-shadow: none;
+              }
+            }
+
+            &:first-child {
+              margin-top: 0.5rem;
+            }
+
+            .show-pass {
+              position: absolute;
+              right: 0;
+              top: 50%;
+
+              font-size: 2rem;
+              cursor: pointer;
+            }
+          }
+        }
+
+        button {
+          font-weight: bold;
+          font-size: 2rem;
+
+          color: #fff;
+          background: $secondary;
+
+          border: none;
+          border-radius: 0.5rem;
+
+          padding: 1rem;
+          margin: 3.5rem 1.5rem 1rem;
+        }
+      }
+
+      .forgot-pass {
+        text-align: center;
+        font-size: 1.4rem;
+
+        a {
+          color: $secondary;
+        }
+      }
+    }
+  }
+}
+
+@keyframes bop {
+  0% {
+    transform: scale(0.9);
+  }
+  50%,
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes bopB {
+  0% {
+    transform: scale(0.9);
+  }
+  80%,
+  100% {
+    transform: scale(1) rotateZ(-3deg);
+  }
+}
