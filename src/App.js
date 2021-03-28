@@ -141,7 +141,6 @@ function App() {
 
         <Route exact path="/dang-nhap">
           <LoginPage />
-          <Footer />
         </Route>
 
         <Route exact path="/gioi-thieu">

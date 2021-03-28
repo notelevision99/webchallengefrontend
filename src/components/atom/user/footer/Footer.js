@@ -37,62 +37,65 @@ function Footer() {
 
         <div className="ft-content">
           <div className="ft-content--top">
-            <div className="ft-c-item">
-              <div className="ft-media">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.71394688724!2d106.85114981462374!3d10.909330592231427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174df02cd60c293%3A0xbc7937c0e332700c!2zQy5QLiBWaWV0bmFtIENvcnBvcmF0aW9uLCAyLCAyQSBTdHJlZXQgLCBCaWVuIEhvYSBJbmR1c3RyaWFsIFpvbmUgSUkgLEJpZW4gSG9hIENpdHksIERvbmcgTmFpIFByb3ZpbmNlLCBMb25nIELDrG5oIFTDom4sIFRow6BuaCBwaOG7kSBCacOqbiBIw7JhLCDEkOG7k25nIE5haSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1615713175160!5m2!1svi!2s" width="600" height="450" style={{width:"100%"}}  allowfullscreen="" loading="lazy"></iframe>
-              </div>
+            <div className="t-left">
+              <div className="ft-c-item">
+                <div className="ft-media">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.71394688724!2d106.85114981462374!3d10.909330592231427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174df02cd60c293%3A0xbc7937c0e332700c!2zQy5QLiBWaWV0bmFtIENvcnBvcmF0aW9uLCAyLCAyQSBTdHJlZXQgLCBCaWVuIEhvYSBJbmR1c3RyaWFsIFpvbmUgSUkgLEJpZW4gSG9hIENpdHksIERvbmcgTmFpIFByb3ZpbmNlLCBMb25nIELDrG5oIFTDom4sIFRow6BuaCBwaOG7kSBCacOqbiBIw7JhLCDEkOG7k25nIE5haSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1615713175160!5m2!1svi!2s"  height="450" style={{width:"100%"}}  allowfullscreen="" loading="lazy"></iframe>
+                </div>
+              </div>  
             </div>
 
-            <div className="ft-c-item">
-              <div className="ft-c-item__name">
-                <h4>tập đoàn giống cây trồng việt nam</h4>
+            <div className="t-right">
+              <div className="ft-c-item">
+                <div className="ft-c-item__name">
+                  <h4>tập đoàn giống cây trồng việt nam</h4>
+                </div>
+                <div className="ft-c-item__info m-l">
+                  <div className="ft-address">
+                    <p className="ft-address--icon">
+                      <InstagramIcon />
+                    </p>
+
+                    <p className="ft-address--title">Địa chỉ:&nbsp;</p>
+
+                    <p className="ft-address--info">
+                      Số 1 Lương Định Của, Phương Mai, Đống Đa, Hàng Nội
+                    </p>
+                  </div>
+
+                  <div className="ft-address">
+                    <p className="ft-address--icon">
+                      <InstagramIcon />
+                    </p>
+
+                    <p className="ft-address--title">Đỉện thoại:&nbsp;</p>
+
+                    <p className="ft-address--info">(024)-38523294</p>
+                  </div>
+
+                  <div className="ft-address">
+                    <p className="ft-address--icon">
+                      <InstagramIcon />
+                    </p>
+
+                    <p className="ft-address--title">Email:&nbsp;</p>
+
+                    <p className="ft-address--info">nsc@vinaseed.com.vn</p>
+                  </div>
+
+                  <div className="ft-address">
+                    <p className="ft-address--icon">
+                      <InstagramIcon />
+                    </p>
+
+                    <p className="ft-address--title">Fax:&nbsp;</p>
+
+                    <p className="ft-address--info">(024)-38527996</p>
+                  </div>
+                </div>
               </div>
-              <div className="ft-c-item__info m-l">
-                <div className="ft-address">
-                  <p className="ft-address--icon">
-                    <InstagramIcon />
-                  </p>
 
-                  <p className="ft-address--title">Địa chỉ:&nbsp;</p>
-
-                  <p className="ft-address--info">
-                    Số 1 Lương Định Của, Phương Mai, Đống Đa, Hàng Nội
-                  </p>
-                </div>
-
-                <div className="ft-address">
-                  <p className="ft-address--icon">
-                    <InstagramIcon />
-                  </p>
-
-                  <p className="ft-address--title">Đỉện thoại:&nbsp;</p>
-
-                  <p className="ft-address--info">(024)-38523294</p>
-                </div>
-
-                <div className="ft-address">
-                  <p className="ft-address--icon">
-                    <InstagramIcon />
-                  </p>
-
-                  <p className="ft-address--title">Email:&nbsp;</p>
-
-                  <p className="ft-address--info">nsc@vinaseed.com.vn</p>
-                </div>
-
-                <div className="ft-address">
-                  <p className="ft-address--icon">
-                    <InstagramIcon />
-                  </p>
-
-                  <p className="ft-address--title">Fax:&nbsp;</p>
-
-                  <p className="ft-address--info">(024)-38527996</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="ft-c-item">
+              <div className="ft-c-item">
               <div className="ft-c-item__name">
                 <h4>theo dõi chúng tôi tại</h4>
               </div>
@@ -113,6 +116,7 @@ function Footer() {
                   </p>
                 </div>
               </div>
+            </div>
             </div>
           </div>
         
