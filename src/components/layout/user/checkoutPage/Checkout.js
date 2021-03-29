@@ -1,13 +1,99 @@
 import banner from '../../../../assets/images/banner/banner-2.jpg';
-import { IconEdit, IconPerson, IconPhone, IconPlace } from '../../../../assets/icons';
+import { IconEdit, IconHome, IconLocationCity, IconPerson, IconPhone, IconPlace } from '../../../../assets/icons';
 import { useHistory } from 'react-router';
+import { useEffect, useState } from 'react';
+import formatVND from '../../../../helpers/user/formatVND';
+import axios from 'axios';
+import { API_URL } from '../../../../helpers/user/urlCallAxios';
 
 function Checkout() {
-    const history = useHistory();
-    const onClickNextCheckout = () => {
-        history.push('/thanh-toan');
+    const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')));
+    const [totalPrice, setTotalPrice] = useState(0);
+    const shippingFee = 22000;
+
+    // Province
+    const [provinces, setProvinces] = useState([]);
+    const [districts, setDistricts] = useState([]);
+
+    //Info checkout
+    const [username, setUsername] = useState('khachhang01');
+    const [province, setProvince] = useState('Thành phố Hồ Chí Minh');
+    const [district, setDistrict] = useState('Quận 10');
+    const [address, setAddress] = useState('304/13 Hòa Hưng P13 Q.10');
+
+    const [provinceModal, setProvinceModal] = useState(province);
+    const [districtModal, setDistrictModal] = useState(district);
+    const [addressModal, setAddressModal] = useState(address);
+
+    useEffect(() => {
+        let cartLocal = localStorage.getItem('cart');
+        if (cartLocal) {
+            setCart(JSON.parse(cartLocal));
+        }
+
+        setTotalPrice(sumPrice);
+
+        getProvinces();
+    }, []);
+
+    const sumPrice = () => {
+        let sum = 0;
+        cart.forEach((element) => {
+            sum += element.price * element.quantity;
+        });
+
+        return sum;
     };
 
+    const getProvinces = () => {
+        axios.get('https://vapi.vnappmob.com/api/province').then((res) => {
+            setProvinces(res.data.results);
+        });
+    };
+
+    /* ------Form On Change----- */
+    const handleChangeProvince = (e) => {
+        const provinceLocal = provinces.find((element) => element.province_name === province);
+
+        axios.get('https://vapi.vnappmob.com/api/province/district/' + provinceLocal.province_id).then((res) => {
+            setDistricts(res.data.results);
+        });
+
+        setProvinceModal(e.target.value);
+    };
+
+    const handleChangeAddress = (e) => {
+        setAddressModal(e.target.value);
+    };
+
+    const handleChangeDistrict = (e) => {
+        setDistrictModal(e.target.value);
+    };
+
+    const onClickClose = () => {
+        setAddressModal(address);
+        setProvinceModal(province);
+        setDistrictModal(district);
+    };
+
+    const onClickSubmit = () => {
+        setAddress(addressModal);
+        setProvince(provinceModal);
+        setDistrict(districtModal);
+    };
+
+    /* ----- On Click Checkout ----- */
+    const onClickCheckout = () => {
+        const formData = {
+            shipAddress: address,
+            shipCity: province,
+            shipProvince: district,
+            userName: username,
+            items: cart.map((element) => ({ productId: element.id, quantity: element.quantity })),
+        };
+
+        axios.post(API_URL + '/api/orders', formData).then(() => console.log('Thanh toan thanh cong'));
+    };
     return (
         <>
             <div className='after-header'></div>
@@ -22,26 +108,33 @@ function Checkout() {
                                 <IconEdit />
                             </div>
                             <h3>
-                                <IconPlace className='icon' />: 304/13 Hoa Hung P.13 Q.10
+                                <IconHome className='icon' />: {address}
                             </h3>
                             <h3>
-                                <IconPhone className='icon' />: 0938582362
+                                <IconLocationCity className='icon' />: {province}
                             </h3>
                             <h3>
-                                <IconPerson className='icon' />: Vo Tri Luan
+                                <IconPlace className='icon' />: {district}
+                            </h3>
+                            <h3>
+                                <IconPerson className='icon' />: {username}
                             </h3>
                         </div>
                         <div className='card-footer'>
-                            <div className='cart-item'>
-                                <img src={banner} className='cart-item-left' />
-                                <div className='cart-item-middle'>
-                                    <h3>SP1 giong lua thuong hang</h3>
-                                    <br />
-                                    <h4> SL: 1</h4>
-                                </div>
-                                <h4 className='cart-item-right'>112 330 đ</h4>
-                            </div>
-                            <hr />
+                            {cart.map((element) => (
+                                <>
+                                    <div className='cart-item'>
+                                        <img src={element.photoUrl} className='cart-item-left' />
+                                        <div className='cart-item-middle'>
+                                            <h3>{element.productName}</h3>
+                                            <br />
+                                            <h4> SL: {element.quantity}</h4>
+                                        </div>
+                                        <h4 className='cart-item-right'>{formatVND(element.price)}</h4>
+                                    </div>
+                                    <hr />
+                                </>
+                            ))}
                         </div>
                     </div>
                 </div>
@@ -54,13 +147,13 @@ function Checkout() {
                         </div>
                         <div className='card-body'>
                             <h3>Tạm tính:</h3>
-                            <h4>32 000 đ</h4>
+                            <h4>{formatVND(totalPrice)}</h4>
                             <h3>Phí vận chuyển:</h3>
-                            <h4>22 000 đ</h4>
+                            <h4>{formatVND(shippingFee)} </h4>
                         </div>
                         <div className='card-footer'>
-                            <h3>Thành tiền: 54 000</h3>
-                            <button onClick={onClickNextCheckout}>Xác nhận</button>
+                            <h3>Thành tiền: {formatVND(totalPrice + shippingFee)}</h3>
+                            <button onClick={onClickCheckout}>Xác nhận</button>
                         </div>
                     </div>
                 </div>
@@ -78,35 +171,56 @@ function Checkout() {
                         </div>
                         <div class='modal-body'>
                             {/* Input Place */}
-                            <div class='input-group mb-3'>
-                                <span className='input-group-text'>
-                                    <IconPlace />
-                                </span>
+                            <div class='form-group md-6'>
+                                <label for='address'>Địa chỉ</label>
 
-                                <input type='text' class='form-control' name='address' placeholder='Địa chỉ' />
+                                <input
+                                    type='text'
+                                    class='form-control'
+                                    id='address'
+                                    name='address'
+                                    value={addressModal}
+                                    placeholder='Địa chỉ'
+                                    onChange={handleChangeAddress}
+                                />
                             </div>
 
-                            {/* Input Phone Number */}
-                            <div class='input-group mb-3'>
-                                <span className='input-group-text'>
-                                    <IconPhone />
-                                </span>
-
-                                <input type='phone' class='form-control' name='phone' placeholder='Số điện thoại' />
-                            </div>
-
-                            {/* Input Name */}
-                            <div class='input-group'>
-                                <span className='input-group-text'>
-                                    <IconPerson />
-                                </span>
-
-                                <input type='text' class='form-control' name='name' placeholder='Tên người nhận' />
+                            {/* Select Province And District */}
+                            <div class='form-row'>
+                                <div class='form-group col-md-6'>
+                                    <label for='inputEmail4'>Tỉnh Thành</label>
+                                    <select
+                                        class='custom-select mr-sm-2'
+                                        id='inlineFormCustomSelect'
+                                        value={provinceModal}
+                                        onChange={handleChangeProvince}>
+                                        <option selected>Chọn tỉnh thành</option>
+                                        {provinces.map((province) => (
+                                            <option value={province.province_name}>{province.province_name}</option>
+                                        ))}
+                                    </select>
+                                </div>
+                                <div class='form-group col-md-6'>
+                                    <label for='inputPassword4'>Quận/Huyện</label>
+                                    <select
+                                        class='custom-select mr-sm-2'
+                                        id='inlineFormCustomSelect'
+                                        value={districtModal}
+                                        onChange={handleChangeDistrict}>
+                                        <option selected>Chọn Quận/Huyện</option>
+                                        {districts.map((district) => (
+                                            <option value={district.district_name}>{district.district_name}</option>
+                                        ))}
+                                    </select>
+                                </div>
                             </div>
                         </div>
                         <div class='modal-footer'>
-                            <button type='button' class='btn btn-default' data-dismiss='modal'>
+                            <button type='button' class='btn btn-default' data-dismiss='modal' onClick={onClickClose}>
                                 Close
+                            </button>
+                            <button type='button' class='btn btn-success' data-dismiss='modal' onClick={onClickSubmit}>
+                                Xác nhận
                             </button>
                         </div>
                     </div>

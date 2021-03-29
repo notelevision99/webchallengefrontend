@@ -1,15 +1,17 @@
-import banner from '../../../../assets/images/banner/banner-2.jpg';
 import { IconDelete } from '../../../../assets/icons';
 import { useHistory } from 'react-router';
 import { useEffect, useState } from 'react';
+import formatVND from '../../../../helpers/user/formatVND';
 
 function Cart() {
     const history = useHistory();
+
+    const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')));
+    const [totalPrice, setTotalPrice] = useState(0);
+
     const onClickNextCheckout = () => {
         history.push('/thanh-toan');
     };
-    const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')));
-    const [totalPrice, setTotalPrice] = useState(0);
 
     const sumPrice = () => {
         let sum = 0;
@@ -27,7 +29,7 @@ function Cart() {
         }
 
         setTotalPrice(sumPrice);
-    }, []);
+    }, [cart]);
 
     const updateFieldChanged = (index) => (e) => {
         let newCart = [...cart]; // copying the old datas array
@@ -62,7 +64,7 @@ function Cart() {
                                                 value={element.quantity}
                                                 onChange={updateFieldChanged(index)}></input>
                                         </div>
-                                        <h4 className='cart-item-right'>{element.price} đ</h4>
+                                        <h4 className='cart-item-right'>{formatVND(element.price)}</h4>
                                         <div className='icon-d'>
                                             <IconDelete />
                                         </div>
@@ -81,7 +83,7 @@ function Cart() {
                         </div>
                         <div className='card-body'>
                             <h3>Tổng tiền</h3>
-                            <h4>{totalPrice} đ</h4>
+                            <h4>{formatVND(totalPrice)}</h4>
                         </div>
                         <div className='card-footer'>
                             <button onClick={onClickNextCheckout}>Đặt hàng</button>
