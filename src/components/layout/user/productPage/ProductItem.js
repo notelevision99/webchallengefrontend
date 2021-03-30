@@ -1,4 +1,5 @@
 import React from 'react';
+import { showToastSuccess } from '../../../../helpers/admin/toastNotify';
 
 function ProductItem({ index, ele }) {
     const addCart = () => {
@@ -33,6 +34,7 @@ function ProductItem({ index, ele }) {
             cart.push(product);
         }
         localStorage.setItem('cart', JSON.stringify(cart));
+        showToastSuccess('Đã thêm sản phẩm vào giỏ hàng');
     };
 
     return (
