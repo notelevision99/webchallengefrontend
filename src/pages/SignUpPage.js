@@ -100,14 +100,11 @@ function SignUpPage() {
 
     return (
         <div className='signup-container'>
-            <div className='signup-cart'>
+            <div className='signup-card'>
                 <div className='signup-shape'>
-                    <NavLink to='/'>
-                        <IconArrowBack />
-                    </NavLink>
                     <h1>C.P.SEEDS VIETNAM</h1>
                     <img src={farm} alt=''></img>
-                    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 509.03 836'>
+                    <svg className='shape' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 509.03 836'>
                         <g fill='#66d4b3'>
                             <path
                                 class='cls-1'
@@ -115,6 +112,9 @@ function SignUpPage() {
                             />
                         </g>
                     </svg>
+                    <NavLink className='link-home' to='/'>
+                        <IconArrowBack />
+                    </NavLink>
                     <NavLink className='link-login' to='/dang-nhap'>
                         Đăng nhập
                     </NavLink>

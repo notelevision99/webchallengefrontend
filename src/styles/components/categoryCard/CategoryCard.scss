@@ -1,70 +1,78 @@
 .category-card {
-	width: 30rem;
-	position: absolute;
-	background-color: rgba(255, 255, 255, 0.6);
-	box-shadow: 0 5px 11px 0 rgba(0,0,0,.18),0 4px 15px 0 rgba(0,0,0,.15)!important;
+    max-width: 80%;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15) !important;
     padding: 2rem;
+    margin: 0 10%;
     border-radius: 0.4rem;
-	bottom: 15rem;
-	left: 10%;
+    top: 40%;
     padding-bottom: 20px;
-	z-index: 1;
+    z-index: 1;
 
-	&-header {
-		margin-bottom: 20px;
+    &-header {
+        margin-bottom: 20px;
 
-		.line {
-			height: 3px;
-			background: rgba(0, 0, 0, 0.1);
-			margin-top: 12px;
-		}
-	}
+        .line {
+            height: 3px;
+            background: rgba(0, 0, 0, 0.1);
+            margin-top: 12px;
+        }
+    }
 
-	&-title {
-		color: #361800;
-		font-size: x-large;
-		font-weight: bold;
-		text-transform: uppercase;
-	}
+    &-title {
+        color: $primary;
+        font-size: x-large;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
 
-	&-body {
-		height: 100%;
+    &-body {
+        width: 100%;
+        ul {
+            display: flex;
+            overflow-x: auto;
 
-		li {
-			.item-category {		
-				display: block;
-				background: rgba(255, 255, 255, 0.9);
-				border-radius: 2px;
-				transition: 0.2s;
-				padding: 10px 15px;
-				color: #361800;
-				position: relative;
-				text-transform: capitalize;
-				text-decoration: none;
-				font-size: x-large;
-				font-family: fml-bold;
-				margin-bottom: 1rem;
-	
-				&::before {
-					content: "";
-					position: absolute;
-					top: 0;
-					left: 0;
-					width: 4px;
-					background: $lightGreen;
-					height: 0%;
-					transition: 0.3s;
-				}
+            li {
+                padding-right: 2rem;
 
-				&:hover, &.active {
-						&::before {
-							height: 100%;
-						}
-				}
-				&.active {
-					color: $lightGreen;
-				}
-			}
-		}	
-	}
+                .item-category {
+                    width: max-content;
+                    display: block;
+                    background: rgba(255, 255, 255, 0.9);
+                    border-radius: 2px;
+                    transition: 0.2s;
+                    padding: 10px 15px;
+                    color: #361800;
+                    position: relative;
+                    text-transform: capitalize;
+                    text-decoration: none;
+                    font-size: x-large;
+                    font-family: fml-bold;
+                    margin-bottom: 1rem;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 4px;
+                        background: $lightGreen;
+                        height: 0%;
+                        transition: 0.3s;
+                    }
+
+                    &:hover,
+                    &.active {
+                        &::before {
+                            height: 100%;
+                        }
+                    }
+                    &.active {
+                        color: $lightGreen;
+                    }
+                }
+            }
+        }
+    }
 }

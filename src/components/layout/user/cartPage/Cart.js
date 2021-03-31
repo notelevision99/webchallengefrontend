@@ -7,7 +7,7 @@ import EmptyCart from './EmptyCart';
 function Cart() {
     const history = useHistory();
 
-    const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')));
+    const [cart, setCart] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
 
     const onClickNextCheckout = () => {
@@ -40,10 +40,20 @@ function Cart() {
         setTotalPrice(sumPrice);
     };
 
+    const deleteItem = (index) => {
+        let newCart = [...cart];
+
+        if (index > -1) {
+            newCart.splice(index, 1);
+        }
+
+        setCart(newCart);
+        localStorage.setItem('cart', JSON.stringify(newCart));
+    };
     return (
         <>
             <div className='after-header'></div>
-            {cart !== null ? (
+            {cart.length > 0 ? (
                 <div className='cart-container'>
                     <div className='cart'>
                         <div className='card'>
@@ -66,7 +76,7 @@ function Cart() {
                                                     onChange={updateFieldChanged(index)}></input>
                                             </div>
                                             <h4 className='cart-item-right'>{formatVND(element.price)}</h4>
-                                            <div className='icon-d'>
+                                            <div className='icon-d' onClick={() => deleteItem(index)}>
                                                 <IconDelete />
                                             </div>
                                         </div>

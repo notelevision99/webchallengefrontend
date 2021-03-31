@@ -19,9 +19,11 @@ function ListBlog(props) {
                         <div className='blog-card'>
                             <img src={blog.photoUrl} />
                             <div className='blog-description'>
-                                <h1 onClick={() => onClickBlog(blog.blogId)}>{blog.title}</h1>
+                                <h3 className='title' onClick={() => onClickBlog(blog.blogId)}>
+                                    {blog.title}
+                                </h3>
 
-                                <h3>{blog.shortDescription}</h3>
+                                <h3 className='description'>{blog.shortDescription}</h3>
                             </div>
                             <h3 className='blog-date'>
                                 <strong>Ngày đăng: </strong>

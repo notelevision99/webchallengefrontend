@@ -9,7 +9,7 @@ function CategoryCard(props) {
                     <div className='line'></div>
                 </div>
                 <div className='category-card-body'>
-                    <ul>
+                    <ul id='style-7'>
                         {props.categories.map((catrgory) => (
                             <li>
                                 <NavLink
