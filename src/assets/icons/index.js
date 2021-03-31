@@ -7,6 +7,10 @@ import PlaceIcon from '@material-ui/icons/Place';
 import PhoneIcon from '@material-ui/icons/Phone';
 import PersonIcon from '@material-ui/icons/Person';
 import EditIcon from '@material-ui/icons/Edit';
+import HomeIcon from '@material-ui/icons/Home';
+import LocationCityIcon from '@material-ui/icons/LocationCity';
+import EmailIcon from '@material-ui/icons/Email';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 export const IconSearch = (props) => <SearchIcon {...props} />;
 export const IconBasket = (props) => <ShoppingBasketOutlinedIcon {...props} />;
@@ -17,3 +21,7 @@ export const IconPlace = (props) => <PlaceIcon {...props} />;
 export const IconPhone = (props) => <PhoneIcon {...props} />;
 export const IconPerson = (props) => <PersonIcon {...props} />;
 export const IconEdit = (props) => <EditIcon {...props} />;
+export const IconHome = (props) => <HomeIcon {...props} />;
+export const IconLocationCity = (props) => <LocationCityIcon {...props} />;
+export const IconEmail = (props) => <EmailIcon {...props} />;
+export const IconArrowBack = (props) => <ArrowBackIcon {...props} />;

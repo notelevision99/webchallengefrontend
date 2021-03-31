@@ -96,7 +96,7 @@ export default class EditCurrentAdmin extends React.Component {
                 <Header />
                 <Menu />
                 {
-                    this.state.redirectToHome && <Redirect to='/' />
+                    this.state.redirectToHome && <Redirect to='/admin/users' />
                 }
                 <div className='content-wrapper' style={{ minHeight: '700px' }}>
                     <section className="content-header">

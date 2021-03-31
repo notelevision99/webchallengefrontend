@@ -1,115 +1,231 @@
-import React, { Component, useState } from "react";
-import { NavLink } from "react-router-dom";
-import Cookies from "js-cookie";
-import { API_URL } from "../helpers/user/urlCallAxios";
-import axios from "axios";
+import { showToastSuccess } from '../helpers/admin/toastNotify';
+import farm from '../assets/images/signup/farming.png';
+import React, { Component, useState } from 'react';
+import { NavLink, useHistory } from 'react-router-dom';
+import Cookies from 'js-cookie';
+import { API_URL } from '../helpers/user/urlCallAxios';
+import axios from 'axios';
 
-function SignUp() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [address, setAddress] = useState("");
-  const [error, setError] = useState("");
+import LockIcon from '@material-ui/icons/Lock';
+import PersonIcon from '@material-ui/icons/Person';
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
+import { IconArrowBack, IconEmail, IconPhone, IconPlace } from '../assets/icons';
+import { ToastContainer } from 'react-toastify';
 
-  const login = (e) => {
-    e.preventDefault();
+function SignUpPage() {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState('');
+    const [address, setAddress] = useState('');
 
-    const formSignUp = {
-      userName: username,
-      password: password,
-      email: email,
-      phoneNumber: phoneNumber,
-      address: address,
+    const [error, setError] = useState('');
+    const [showPass, setShowPass] = useState(false);
+
+    const signup = (e) => {
+        e.preventDefault();
+
+        /*-----Validate-----*/
+        let emailValid = email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+        let phoneValid = phoneNumber.match(/^[0-9\b]+$/) && phoneNumber.length <= 10;
+        let passwordValid = password.length >= 6;
+        if (
+            username.length === 0 ||
+            password.length === 0 ||
+            email.length === 0 ||
+            phoneNumber.length === 0 ||
+            address.length === 0
+        ) {
+            setError('Vui lòng điền đầy dủ thông tin');
+            return;
+        } else if (!passwordValid) {
+            setError('Mật khẩu không hợp lệ');
+            return;
+        } else if (!phoneValid) {
+            setError('Số điện thoại không hợp lệ');
+            return;
+        } else if (!emailValid) {
+            setError('Email không hợp lệ');
+            return;
+        } else {
+            setError('');
+        }
+
+        const formSignUp = {
+            userName: username,
+            password: password,
+            email: email,
+            phoneNumber: phoneNumber,
+            address: address,
+        };
+        const url = `${API_URL}/api/auth/register`;
+        axios
+            .post(url, formSignUp, { withCredentials: true })
+            .then(() => {
+                showToastSuccess('Đăng kí thành công');
+            })
+            .catch((error) =>
+                setError(
+                    (error.response && error.response.data && error.response.data.message) ||
+                        error.message ||
+                        error.toString()
+                )
+            );
     };
-    const url = `${API_URL}/api/auth/register`;
-    return axios.post(url, formSignUp, { withCredentials: true }).then();
-  };
-  const handleUsername = (e) => {
-    setUsername(e.target.value);
-  };
 
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
-  };
+    const handleUsername = (e) => {
+        setUsername(e.target.value);
+    };
 
-  const handlePhone = (e) => {
-    setPhoneNumber(e.target.value);
-  };
+    const handlePassword = (e) => {
+        setPassword(e.target.value);
+    };
 
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-  };
+    const handlePhone = (e) => {
+        setPhoneNumber(e.target.value);
+    };
 
-  const handleAddress = (e) => {
-    setAddress(e.target.value);
-  };
+    const handleEmail = (e) => {
+        setEmail(e.target.value);
+    };
 
-  return (
-    <div className="login-page">
-      <div className="formLogin">
-        <div className="form-login-title">Đăng Kí Tài Khoản</div>
-        <form onSubmit={login}>
-          <div className="input-group">
-            <input
-              type="text"
-              id="username"
-              name="username"
-              onChange={handleUsername}
-              required
-            />
-            <label for="username">Username</label>
-          </div>
+    const handleAddress = (e) => {
+        setAddress(e.target.value);
+    };
 
-          <div className="input-group">
-            <input
-              type="password"
-              id="password"
-              name="password"
-              onChange={handlePassword}
-              required
-            />
-            <label for="password">Password</label>
-          </div>
+    const onShowPass = (e) => {
+        setShowPass(!showPass);
+    };
 
-          <div className="input-group">
-            <input
-              type="phone"
-              id="phone"
-              name="phone"
-              onChange={handlePhone}
-              required
-            />
-            <label for="phone">Số điện thoại</label>
-          </div>
+    return (
+        <div className='signup-container'>
+            <div className='signup-cart'>
+                <div className='signup-shape'>
+                    <NavLink to='/'>
+                        <IconArrowBack />
+                    </NavLink>
+                    <h1>C.P.SEEDS VIETNAM</h1>
+                    <img src={farm} alt=''></img>
+                    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 509.03 836'>
+                        <g fill='#66d4b3'>
+                            <path
+                                class='cls-1'
+                                d='M471.32,20c0-11-8.13-20-18.16-20h-435C8.16,0,0,9,0,20V816c0,11,8.13,20,18.16,20h435c10,0,18.16-9,18.16-20L509,418Z'
+                            />
+                        </g>
+                    </svg>
+                    <NavLink className='link-login' to='/dang-nhap'>
+                        Đăng nhập
+                    </NavLink>
+                </div>
+                <div className='signup-form'>
+                    <div></div>
+                    <form action='' onSubmit={signup}>
+                        <div className='input'>
+                            {/* Username input */}
+                            <div className='input__box username'>
+                                <div class='form__group field'>
+                                    <input
+                                        type='input'
+                                        class='form__field'
+                                        placeholder='Name'
+                                        name='name'
+                                        id='name'
+                                        onChange={handleUsername}
+                                    />
 
-          <div className="input-group">
-            <input
-              type="mail"
-              id="email"
-              name="email"
-              onChange={handleEmail}
-              required
-            />
-            <label for="email">Email</label>
-          </div>
+                                    <label for='name' class='form__label'>
+                                        <PersonIcon /> Username
+                                    </label>
+                                </div>
+                            </div>
 
-          <div className="input-group">
-            <input
-              type="text"
-              id="address"
-              name="address"
-              onChange={handleAddress}
-              required
-            />
-            <label for="address">Địa chỉ</label>
-          </div>
-          <button name="submit">Đăng kí</button>
-          {error !== "" && <p className="error">{error}</p>}
-          <NavLink to="/login">Đăng nhập tài khoản</NavLink>
-        </form>
-      </div>
-    </div>
-  );
+                            {/* password input */}
+                            <div className='input__box'>
+                                <div class='form__group field'>
+                                    <input
+                                        type={showPass ? 'text' : 'password'}
+                                        class='form__field'
+                                        placeholder='Password'
+                                        name='password'
+                                        id='password'
+                                        onChange={handlePassword}
+                                    />
+
+                                    {showPass ? (
+                                        <VisibilityOffIcon className='show-pass' onClick={onShowPass} />
+                                    ) : (
+                                        <VisibilityIcon className='show-pass' onClick={onShowPass} />
+                                    )}
+
+                                    <label for='password' class='form__label'>
+                                        <LockIcon /> Password
+                                    </label>
+                                </div>
+                            </div>
+
+                            {/* Phone input */}
+                            <div className='input__box username'>
+                                <div class='form__group field'>
+                                    <input
+                                        type='phone'
+                                        class='form__field'
+                                        placeholder='Số điện thoại'
+                                        name='phone'
+                                        id='phone'
+                                        onChange={handlePhone}
+                                    />
+
+                                    <label for='phone' class='form__label'>
+                                        <IconPhone /> Số điện thoại
+                                    </label>
+                                </div>
+                            </div>
+
+                            {/* Address input */}
+                            <div className='input__box username'>
+                                <div class='form__group field'>
+                                    <input
+                                        type='email'
+                                        class='form__field'
+                                        placeholder='Email'
+                                        name='email'
+                                        id='email'
+                                        onChange={handleEmail}
+                                    />
+
+                                    <label for='email' class='form__label'>
+                                        <IconEmail /> Email
+                                    </label>
+                                </div>
+                            </div>
+
+                            {/* Address input */}
+                            <div className='input__box username'>
+                                <div class='form__group field'>
+                                    <input
+                                        type='input'
+                                        class='form__field'
+                                        placeholder='Địa chỉ'
+                                        name='address'
+                                        id='address'
+                                        onChange={handleAddress}
+                                    />
+
+                                    <label for='address' class='form__label'>
+                                        <IconPlace /> Địa chỉ
+                                    </label>
+                                </div>
+                            </div>
+                            {error !== '' ? <p className='error'>{error} </p> : <div className='br'></div>}
+                            <button type='submit'>Đăng kí tài khoản</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <ToastContainer />
+        </div>
+    );
 }
-export default SignUp;
+export default SignUpPage;

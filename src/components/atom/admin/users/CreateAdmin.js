@@ -87,7 +87,7 @@ export default class CreateAdmin extends React.Component {
                 <Header />
                 <Menu />
                 {
-                    this.state.redirect && <Redirect to='/listadmins' />
+                    this.state.redirect && <Redirect to='/admin/users' />
                 }
                 <div className='content-wrapper' style={{ minHeight: '700px' }}>
                     <section className="content-header">

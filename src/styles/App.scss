@@ -43,9 +43,13 @@
 
 // Cart Page
 @import "./components/cartPage/Cart.scss";
+@import "./components/cartPage/EmptyCart.scss";
 
 // CheckoutPage
 @import "./components/checkoutPage/CheckoutPage.scss";
 
 // LoginPage
 @import "./components/loginPage/Login.scss";
+
+//Signup Page
+@import "./components/signupPage/Signup.scss";
