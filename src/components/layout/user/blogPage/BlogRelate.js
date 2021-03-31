@@ -18,7 +18,9 @@ function BlogRelate(props) {
                         <div className='blog-card'>
                             <img src={blog.photoUrl} />
                             <div className='blog-description'>
-                                <h1 onClick={() => onClickBlog(blog.blogId)}>{blog.title}</h1>
+                                <h3 className='title' onClick={() => onClickBlog(blog.blogId)}>
+                                    {blog.title}
+                                </h3>
                             </div>
                         </div>
                         <br />
