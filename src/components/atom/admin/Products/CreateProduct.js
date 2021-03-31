@@ -28,6 +28,9 @@ export default class CreateProduct extends React.Component {
             categoryId: 0,
             description: "",
             productDetails: "",
+            urlSeo: "",
+            weight: 0,
+            company: "",
             /**End State Product Info */
             redirect: false,
         };
@@ -41,6 +44,9 @@ export default class CreateProduct extends React.Component {
         this.handleProductDetailsChange = this.handleProductDetailsChange.bind(
             this
         );
+        this.handleUrlSeoChange = this.handleUrlSeoChange.bind(this)
+        this.handleWeightChange = this.handleWeightChange.bind(this)
+        this.handleCompanyChange = this.handleCompanyChange.bind(this)
         this.fileInput = React.createRef();
     }
 
@@ -75,6 +81,34 @@ export default class CreateProduct extends React.Component {
         });
     }
 
+     /**
+     * Handle UrlSeo Change
+     */
+      handleUrlSeoChange = (e) =>  {
+        this.setState({
+            urlSeo: e.target.value
+        })
+    }
+
+    /**
+     * Handle Weight Products Change
+     */
+     handleWeightChange = (e) =>  {
+        this.setState({
+            weight: e.target.value
+        })
+    }
+
+    /**
+     * Handle Company Change
+     */
+     handleCompanyChange = (e) =>  {
+        this.setState({
+            company: e.target.value
+        })
+    }
+
+
     /**
      * onChange Description
      */
@@ -93,6 +127,8 @@ export default class CreateProduct extends React.Component {
         };
     }
     /***************END onChange Description */
+
+   
 
     /**
      * onChange ProductDetails
@@ -135,6 +171,9 @@ export default class CreateProduct extends React.Component {
             categoryId: parseInt(this.state.categoryId),
             description: this.state.description,
             productDetails: this.state.productDetails,
+            urlSeo: this.state.urlSeo,
+            weight: this.state.weight,
+            company: this.state.company,
             photoUrl: "asd",
         });
 
@@ -453,8 +492,76 @@ export default class CreateProduct extends React.Component {
                                                         }
                                                     </div>
                                                 </div>
+                                                <div className="row">
+                                                    <div className="col-md-6">
+                                                        {/* text input */}
+                                                        <div className="form-group">
+                                                            <label>
+                                                                Urlseo sản phẩm
+                                                            </label>
+                                                            <input
+                                                                type="text"
+                                                                value={
+                                                                    this.state
+                                                                        .urlSeo
+                                                                }
+                                                                onChange={
+                                                                    this
+                                                                        .handleUrlSeoChange
+                                                                }
+                                                                className="form-control"
+                                                                placeholder="Enter ..."
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-md-6">
+                                                        {/* text input */}
+                                                        <div className="form-group">
+                                                            <label>
+                                                                Trọng lượng sản phẩm
+                                                            </label>
+                                                            <input
+                                                                type="text"
+                                                                value={
+                                                                    this.state
+                                                                        .weight
+                                                                }
+                                                                onChange={
+                                                                    this
+                                                                        .handleWeightChange
+                                                                }
+                                                                className="form-control"
+                                                                placeholder="Enter ..."
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="row">
+                                                <div className="col-md-6">
+                                                        {/* text input */}
+                                                        <div className="form-group">
+                                                            <label>
+                                                                Tên nhà sản xuất
+                                                            </label>
+                                                            <input
+                                                                type="text"
+                                                                value={
+                                                                    this.state
+                                                                        .company
+                                                                }
+                                                                onChange={
+                                                                    this
+                                                                        .handleCompanyChange
+                                                                }
+                                                                className="form-control"
+                                                                placeholder="Enter ..."
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
                                                 {this.state.redirect && (
-                                                    <Redirect to="/products" />
+                                                    <Redirect to="/admin/products" />
                                                 )}
                                                 <button className="btn btn-success">
                                                     Xác nhận

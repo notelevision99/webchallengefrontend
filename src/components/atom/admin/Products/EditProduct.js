@@ -24,6 +24,9 @@ export default class EditProduct extends React.Component {
             price: "",
             description: "",
             productDetails: "",
+            weight: 0,
+            urlSeo: "",
+            company:"",
 
             /**State onChange Image Input */
             selectedFile: [],
@@ -43,6 +46,9 @@ export default class EditProduct extends React.Component {
         this.handleChangeListCategories = this.handleChangeListCategories.bind(
             this
         );
+        this.handleUrlSeoChange = this.handleUrlSeoChange.bind(this);
+        this.handleCompanyChange = this.handleCompanyChange.bind(this);
+        this.handleWeightChange = this.handleWeightChange.bind(this);
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
         this.handleProductDetailsChange = this.handleProductDetailsChange.bind(
             this
@@ -68,6 +74,9 @@ export default class EditProduct extends React.Component {
                     price: data.price,
                     description: data.description,
                     productDetails: data.productDetails,
+                    urlSeo: data.urlSeo,
+                    company: data.company,
+                    weight: data.weight,
                     photos: data.photos,
                 });
                 console.log(data);
@@ -96,6 +105,32 @@ export default class EditProduct extends React.Component {
         this.setState({
             price: e.target.value,
         });
+    }
+    /**
+     * Handle UrlSeo Change
+     */
+    handleUrlSeoChange(e){
+        this.setState({
+            urlSeo: e.target.value
+        })
+    }
+
+     /**
+     * Handle Company Change
+     */
+      handleCompanyChange(e){
+        this.setState({
+            company: e.target.value
+        })
+    }
+
+     /**
+     * Handle Weight Change
+     */
+      handleWeightChange(e){
+        this.setState({
+            weight: e.target.value
+        })
     }
 
     /**
@@ -167,6 +202,9 @@ export default class EditProduct extends React.Component {
             categoryId: parseInt(this.state.categoryId),
             description: this.state.description,
             productDetails: this.state.productDetails,
+            urlSeo: this.state.urlSeo,
+            weight: this.state.weight,
+            company: this.state.company,
             photoUrl: "asd",
         });
         const formData = new FormData();
@@ -565,12 +603,71 @@ export default class EditProduct extends React.Component {
                                                 {this.state.redirect && (
                                                     <Redirect to="/admin/products" />
                                                 )}
+                                                <div className="row">
+                                                    <div className="col-sm-6">
+                                                        <div className="form-group">
+                                                            <label>UrlSeo sản phẩm</label>
+                                                            <input
+                                                                type="text"
+                                                                
+                                                                value={
+                                                                    this.state
+                                                                        .urlSeo
+                                                                }
+                                                                onChange={
+                                                                    this
+                                                                        .handleUrlSeoChange
+                                                                }
+                                                                className="form-control"
+                                                                placeholder="Enter ..."
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-sm-6">
+                                                        <div className="form-group">
+                                                            <label>Trọng lượng sản phẩm</label>
+                                                            <input
+                                                                type="number"
+                                                                min="0"
+                                                                value={
+                                                                    this.state
+                                                                        .weight
+                                                                }
+                                                                onChange={
+                                                                    this
+                                                                        .handleWeightChange
+                                                                }
+                                                                className="form-control"
+                                                                placeholder="Enter ..."
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="row">
+                                                    <div className="col-sm-6">
+                                                        <div className="form-group">
+                                                            <label>Tên nhà sản xuất</label>
+                                                            <input
+                                                                type="text"
+                                                                value={
+                                                                    this.state
+                                                                        .company
+                                                                }
+                                                                onChange={
+                                                                    this
+                                                                        .handleCompanyChange
+                                                                }
+                                                                className="form-control"
+                                                                placeholder="Enter ..."
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </div>
 
                                                 <button className="btn btn-success">
                                                     Xác nhận
                                                 </button>
-                                                <div className="col-md-6"></div>
-
+                                               
                                                 {/* input states */}
                                             </form>
                                         </div>
