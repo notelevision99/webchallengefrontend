@@ -29,7 +29,7 @@ function Cart() {
             setCart(JSON.parse(cartLocal));
             setTotalPrice(sumPrice);
         }
-    }, [cart]);
+    }, []);
 
     const updateFieldChanged = (index) => (e) => {
         let newCart = [...cart]; // copying the old datas array
