@@ -40,7 +40,7 @@ function Checkout() {
         setTotalPrice(sumPrice);
 
         getProvinces();
-    }, [cart, checkoutSuccess]);
+    }, [checkoutSuccess]);
 
     const sumPrice = () => {
         let sum = 0;
