@@ -79,10 +79,10 @@ function Header() {
             </div>
 
             <div className="menu--top--right">
-              <a>
+              <NavLink to="/gio-hang">
                 <IconBasket className="header-icon icon-mtr" />
                 <p>Mua Hàng</p>
-              </a>
+              </NavLink>
 
               <NavLink to="/dang-ki">
                 <p>Đăng kí</p>

@@ -177,7 +177,7 @@ function App() {
         </Route>
 
         <Route exact path="/san-pham">
-          {/* <Header /> */}
+          <Header />
           <ProductPage GetProduct={GetProduct} />
           <Footer />
         </Route>

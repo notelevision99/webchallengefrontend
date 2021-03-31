@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { API_URL } from '../../../../helpers/user/urlCallAxios.js';
 import { useHistory } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 function ListProduct() {
     const history = useHistory();
@@ -26,6 +27,8 @@ function ListProduct() {
         history.push('/san-pham/' + urlSeo);
     };
     return (
+        <>
+        <ToastContainer/>
         <div className='product-box'>
             <h1 className='category-title'>
                 Giống Lúa
@@ -79,6 +82,7 @@ function ListProduct() {
                 </div>
             </div>
         </div>
+        </>
     );
 }
 export default ListProduct;

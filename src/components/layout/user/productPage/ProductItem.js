@@ -2,6 +2,8 @@ import React from "react";
 import { GetProductDetailBusiness } from "../../../../business/product/ProductBusiness";
 import { DATA_STATUS } from "../../../../utils/config";
 import { useHistory } from "react-router-dom";
+import { showToastSuccess } from "../../../../helpers/admin/toastNotify";
+import { ToastContainer } from "react-toastify";
 
 function ProductItem({ index, ele }) {
   const HISTORY = useHistory();
@@ -38,9 +40,10 @@ function ProductItem({ index, ele }) {
       (checkProductExist === 0 && cart.length === 0) ||
       checkProductExist === 0
     ) {
-      cart.push(product);
+      cart.push(product);     
     }
     localStorage.setItem("cart", JSON.stringify(cart));
+    showToastSuccess("Thêm giỏ hàng thành công!!");
   };
 
   //Product detail
@@ -61,6 +64,7 @@ function ProductItem({ index, ele }) {
   };
 
   return (
+    <>
     <div className="product-item" key={index}>
       <div className="product-item__thumbnail">
         <img src={ele.photoUrl} alt="" />
@@ -87,6 +91,7 @@ function ProductItem({ index, ele }) {
         </div>
       </div>
     </div>
+    </>
   );
 }
 
