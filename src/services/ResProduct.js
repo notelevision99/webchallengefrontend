@@ -64,4 +64,29 @@ const FilterByCateERP = (cateId) => {
   });
 };
 
-export { GetProductERP, GetCateProductERP, FilterByCateERP };
+const GetProductDetailERP = (urlSeo) => {
+  const URL = `${DOMAIN.URL}/products/${urlSeo}`;
+
+  return new Promise((res, rej) => {
+    GetService(URL)
+      .then((resService) => {
+        res({
+          data: resService,
+          status: DATA_STATUS.SUCCESS,
+        });
+      })
+      .catch((rejService) => {
+        res({
+          status: DATA_STATUS.FAILED,
+          rej: rejService,
+        });
+      });
+  });
+};
+
+export {
+  GetProductERP,
+  GetCateProductERP,
+  FilterByCateERP,
+  GetProductDetailERP,
+};

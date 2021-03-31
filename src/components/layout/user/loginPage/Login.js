@@ -9,7 +9,7 @@ import PersonIcon from "@material-ui/icons/Person";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import VisibilityOffIcon from "@material-ui/icons/VisibilityOff";
 
-function Login({ showPass, onShowPass }) {
+function Login({ showPass, onShowPass, onUsername, onPassword, onLogin }) {
   /* ===================== Handle UI ===================== */
   const [username, setUsername] = useState(false);
   const [password, setPassword] = useState(false);
@@ -39,6 +39,7 @@ function Login({ showPass, onShowPass }) {
                     name="name"
                     id="name"
                     required
+                    onChange={onUsername}
                   />
 
                   <label for="name" class="form__label">
@@ -57,6 +58,7 @@ function Login({ showPass, onShowPass }) {
                     name="password"
                     id="password"
                     required
+                    onChange={onPassword}
                   />
 
                   {showPass ? (
@@ -77,7 +79,7 @@ function Login({ showPass, onShowPass }) {
                 </div>
               </div>
 
-              <button>Đăng nhập</button>
+              <button onClick={onLogin}>Đăng nhập</button>
             </div>
           </form>
 

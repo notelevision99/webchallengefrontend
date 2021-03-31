@@ -11459,7 +11459,6 @@ body.sidebar-collapse:not(.sidebar-mini-md):not(.sidebar-mini) .main-header::bef
   height: inherit;
   min-height: 100%;
   position: absolute;
-  top: 0;
 }
 
 .layout-fixed .brand-link {
