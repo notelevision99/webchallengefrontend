@@ -1,10 +1,19 @@
 import React, { Component, useState, useEffect } from "react";
 import { NavLink, useHistory } from "react-router-dom";
-import "../css/LoginPage.css";
+import { useDispatch } from "react-redux";
+
 import axios from "axios";
 import Cookies from "js-cookie";
-import { API_URL } from "../helpers/user/urlCallAxios";
 import Login from "../components/layout/user/loginPage/Login";
+
+//Config
+import { DATA_STATUS } from "../utils/config";
+
+//Business
+import { UserLoginBusiness } from "../business/authentication/Login";
+
+//Reducer
+import { userLogin } from "../redux/action/AuthenticationAction";
 
 function LoginPage() {
   // const history = useHistory();
@@ -66,12 +75,57 @@ function LoginPage() {
   //     </div>
   // );
 
+  // Handle UI
   const [showPass, setShowPass] = useState(false);
 
   const onShowPass = () => {
     setShowPass(!showPass);
   };
 
-  return <Login onShowPass={onShowPass} showPass={showPass} />;
+  // Handle logic
+  const DISPATCH = useDispatch();
+  const HISTORY = useHistory();
+
+  const [formLogin, SetFormLogin] = useState({
+    username: "",
+    password: "",
+  });
+
+  const onUsername = (e) => {
+    SetFormLogin({ ...formLogin, username: e.target.value });
+  };
+
+  const onPassword = (e) => {
+    SetFormLogin({ ...formLogin, password: e.target.value });
+  };
+
+  const onLogin = async (event) => {
+    event.preventDefault();
+    const { username, password } = formLogin;
+
+    await UserLoginBusiness(username, password).then((response) => {
+      if (response.status === DATA_STATUS.SUCCESS) {
+        const user = response.data;
+        if (user) {
+          console.log(user);
+          Cookies.set("usrCks", `${user.roles}`, { expires: 2 });
+          Cookies.set("Usr_N", `${user.name}`, { expires: 2 });
+          Cookies.set("Usr_I", `${user.id}`, { expires: 2 });
+          DISPATCH(userLogin(user));
+          HISTORY.push("/");
+        }
+      }
+    });
+  };
+
+  return (
+    <Login
+      onShowPass={onShowPass}
+      showPass={showPass}
+      onUsername={onUsername}
+      onPassword={onPassword}
+      onLogin={onLogin}
+    />
+  );
 }
 export default LoginPage;

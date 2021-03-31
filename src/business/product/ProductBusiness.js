@@ -3,6 +3,7 @@ import {
   GetProductERP,
   GetCateProductERP,
   FilterByCateERP,
+  GetProductDetailERP,
 } from "../../services/ResProduct";
 
 const GetProductBusiness = (pageNumber) => {
@@ -77,4 +78,33 @@ const FilterByCateBusiness = (cateId) => {
   }
 };
 
-export { GetProductBusiness, GetCateProductBusiness, FilterByCateBusiness };
+const GetProductDetailBusiness = (urlSeo) => {
+  try {
+    return new Promise(async (res, rej) => {
+      let productDetail = await GetProductDetailERP(urlSeo);
+
+      if (productDetail.status === DATA_STATUS.SUCCESS) {
+        let customData = productDetail.data.data;
+
+        res({
+          data: customData,
+          status: DATA_STATUS.SUCCESS,
+        });
+      } else {
+        rej(productDetail);
+      }
+    });
+  } catch (error) {
+    error({
+      data: [],
+      status: DATA_STATUS.FAILED,
+    });
+  }
+};
+
+export {
+  GetProductBusiness,
+  GetCateProductBusiness,
+  FilterByCateBusiness,
+  GetProductDetailBusiness,
+};

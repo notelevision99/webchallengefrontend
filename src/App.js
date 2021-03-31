@@ -1,47 +1,48 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Switch } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import cookie from "js-cookie";
 
 import ListCategories from "./components/atom/admin/categories/ListCategories";
 import EditCategories from "./components/atom/admin/categories/EditCategories";
-import Login          from "./components/atom/admin/auth/Login";
-import ListAdmins     from "./components/atom/admin/users/ListAdmins";
-import CreateAdmin    from "./components/atom/admin/users/CreateAdmin";
+import Login from "./components/atom/admin/auth/Login";
+import ListAdmins from "./components/atom/admin/users/ListAdmins";
+import CreateAdmin from "./components/atom/admin/users/CreateAdmin";
 
-import Product              from "./components/atom/admin/Products/Product";
-import Home                 from "./components/atom/admin/home/Home";
-import CreateProduct        from "./components/atom/admin/Products/CreateProduct";
-import EditProduct          from "./components/atom/admin/Products/EditProduct";
-import ProtectedRoute       from "./helpers/admin/checkRolesAuth";
-import EditCurrentAdmin     from "./components/atom/admin/users/EditCurrentAdmin";
-import Banners              from "./components/atom/admin/banners/Banners";
-import CreateBanner         from "./components/atom/admin/banners/CreateBanner";
-import Orders               from "./components/atom/admin/orders/Orders";
-import OrderDetails         from "./components/atom/admin/orders/OrderDetails";
-import CreateBlog           from "./components/atom/admin/blogs/CreateBlog";
-import Blog                 from "./components/atom/admin/blogs/Blog";
-import EditBlog             from "./components/atom/admin/blogs/EditBlog";
-import CreateCategories     from "./components/atom/admin/categories/CreateCategories";
-import CategoriesBlog       from "./components/atom/admin/categoriesBlog/CategoriesBlog";
+import Product from "./components/atom/admin/Products/Product";
+import Home from "./components/atom/admin/home/Home";
+import CreateProduct from "./components/atom/admin/Products/CreateProduct";
+import EditProduct from "./components/atom/admin/Products/EditProduct";
+import ProtectedRoute from "./helpers/admin/checkRolesAuth";
+import EditCurrentAdmin from "./components/atom/admin/users/EditCurrentAdmin";
+import Banners from "./components/atom/admin/banners/Banners";
+import CreateBanner from "./components/atom/admin/banners/CreateBanner";
+import Orders from "./components/atom/admin/orders/Orders";
+import OrderDetails from "./components/atom/admin/orders/OrderDetails";
+import CreateBlog from "./components/atom/admin/blogs/CreateBlog";
+import Blog from "./components/atom/admin/blogs/Blog";
+import EditBlog from "./components/atom/admin/blogs/EditBlog";
+import CreateCategories from "./components/atom/admin/categories/CreateCategories";
+import CategoriesBlog from "./components/atom/admin/categoriesBlog/CategoriesBlog";
 import CreateCategoriesBlog from "./components/atom/admin/categoriesBlog/CreateCategoriesBlog";
-import EditCategoriesBlog   from "./components/atom/admin/categoriesBlog/EditCategoriesBlog";
+import EditCategoriesBlog from "./components/atom/admin/categoriesBlog/EditCategoriesBlog";
 
 // Client
 import "./styles/App.scss";
-import HomePage          from "./pages/HomePage";
-import Header            from "./components/atom/user/header/Header";
-import Footer            from "./components/atom/user/footer/Footer";
-import ProductPage       from "./pages/ProductPage";
+import HomePage from "./pages/HomePage";
+import Header from "./components/atom/user/header/Header";
+import Footer from "./components/atom/user/footer/Footer";
+import ProductPage from "./pages/ProductPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
-import LoginPage         from "./pages/LoginPage";
-import SignUp            from "./pages/SignUpPage";
-import AboutPage         from "./pages/AboutPage";
-import BlogPage          from "./pages/BlogPage";
-import BlogDetailPage    from "./pages/BlogDetailPage";
-import NoMatch           from "./pages/NoMatch";
-import CartPage from './pages/CartPage';
-import CheckoutPage from './pages/CheckoutPage';
+import LoginPage from "./pages/LoginPage";
+import SignUp from "./pages/SignUpPage";
+import AboutPage from "./pages/AboutPage";
+import BlogPage from "./pages/BlogPage";
+import BlogDetailPage from "./pages/BlogDetailPage";
+import NoMatch from "./pages/NoMatch";
+import CartPage from "./pages/CartPage";
+import CheckoutPage from "./pages/CheckoutPage";
 
 // Config
 import { DATA_STATUS } from "./utils/config";
@@ -53,24 +54,46 @@ import {
 } from "./business/product/ProductBusiness";
 import { GetCompanyBusiness } from "./business/product/CompanyBusiness";
 import { GetWeightBusiness } from "./business/product/WeightBusiness";
-
 // Action redux
 import {
   getProducts,
   getCategory,
   getCompany,
-  getWeight
+  getWeight,
 } from "./redux/action/ProductAction";
+import BeginAtTop from "./components/atom/user/action/BeginAtTop";
+import ScrollTopTop from "./components/atom/user/action/ScrollTopTop";
+
+/* GET cookie */
+let getCookie = () => {
+  const userCookie = cookie.get("Usr_N");
+  if (userCookie) {
+    return userCookie;
+  } else {
+    return "";
+  }
+};
 
 function App() {
   const DISPATCH = useDispatch();
+
+  //Authentication
+  const [user, setUser] = useState(getCookie());
+  const userOnRedux = useSelector(
+    (state) => state.AuthenticationReducer.userInfo
+  );
+
+  let nam = userOnRedux;
+
+  console.log("user => ", userOnRedux);
+  console.log("user nam => ", nam);
 
   // Get products from API
   const GetProduct = async (pageNumber) => {
     await GetProductBusiness(pageNumber).then((res) => {
       if (res.status === DATA_STATUS.SUCCESS) {
         const allProduct = res.data.item1;
-        console.log('allProduct', allProduct);
+        console.log("allProduct", allProduct);
         DISPATCH(getProducts(allProduct));
       }
     });
@@ -115,6 +138,8 @@ function App() {
 
   return (
     <Router>
+      <BeginAtTop />
+      <ScrollTopTop />
       {/** -------------Chat FB Plugin --------------- */}
       <div id="fb-root"></div>
       <div
@@ -139,9 +164,11 @@ function App() {
           <Footer />
         </Route>
 
-        <Route exact path="/dang-nhap">
-          <LoginPage />
-        </Route>
+        {user ? null : (
+          <Route exact path="/dang-nhap">
+            <LoginPage />
+          </Route>
+        )}
 
         <Route exact path="/gioi-thieu">
           <Header />
@@ -155,13 +182,13 @@ function App() {
           <Footer />
         </Route>
 
-        <Route exact path='/gio-hang'>
+        <Route exact path="/gio-hang">
           <Header />
           <CartPage />
           <Footer />
         </Route>
 
-        <Route exact path='/thanh-toan'>
+        <Route exact path="/thanh-toan">
           <Header />
           <CheckoutPage />
           <Footer />

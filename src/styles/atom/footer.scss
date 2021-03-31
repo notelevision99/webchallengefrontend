@@ -56,11 +56,11 @@ $mw-footer: 90%;
 
         margin: 2rem 0;
 
-        .t-left{
+        .t-left {
           width: 50%;
         }
 
-        .t-right{
+        .t-right {
           width: 40%;
         }
 
@@ -129,18 +129,107 @@ $mw-footer: 90%;
           }
         }
       }
+    }
+  }
 
-      &--policy {
-        display: flex;
-        flex-direction: column;
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 3rem;
+    border-bottom: 0.1rem solid $black;
 
-        font-size: 1.4rem;
+    &--logo {
+      width: 15rem;
+      height: 15rem;
+    }
 
-        small {
-          padding: 0.5rem;
-          color: #4a4a4a;
-        }
+    &--item {
+      width: calc(100% / 4);
+
+      font-size: 1.6rem;
+
+      img {
+        width: 15rem;
+        height: 15rem;
+
+        margin: auto;
       }
+
+      .MuiSvgIcon-root {
+        font-size: 3rem;
+        color: $lightGreen;
+      }
+
+      .heading {
+        font-size: 1.6rem;
+        font-weight: bold;
+
+        padding: 1rem 0;
+      }
+    }
+  }
+
+  &__media-social {
+    padding: 3rem 0;
+
+    h4 {
+      text-transform: uppercase;
+      font-weight: bold;
+      padding-bottom: 2rem;
+
+      font-size: 1.6rem;
+      letter-spacing: 0.15rem;
+    }
+
+    &--icons {
+      @include midflex;
+
+      p {
+        padding: 1rem;
+        margin: 1rem 1.5rem;
+
+        border-radius: 50%;
+
+        box-shadow: 0.5rem 0.5rem 1rem #171717, -0.5rem -0.5rem 1rem #2d2d2d;
+      }
+
+      .fb {
+        color: #4267b2;
+      }
+
+      .tw {
+        color: #1da1f2;
+      }
+
+      .ig {
+        color: #fbad50;
+      }
+
+      .yt {
+        color: #e95950;
+        font-size: 2rem;
+      }
+    }
+  }
+
+  &__map {
+    padding-bottom: 3rem;
+
+    iframe {
+      width: 100%;
+      height: 45rem;
+    }
+  }
+
+  &__policy {
+    display: flex;
+    flex-direction: column;
+
+    font-size: 1.4rem;
+
+    small {
+      padding: 0.5rem;
+      color: #4a4a4a;
     }
   }
 }

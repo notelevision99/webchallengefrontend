@@ -1,4 +1,9 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import cookie from "js-cookie";
+
+//config
+import { DATA_STATUS } from "../../../../utils/config";
 
 //Images
 import Logo from "../../../../assets/images/logo.png";
@@ -7,13 +12,30 @@ import English from "../../../../assets/images/vi_VN.png";
 
 //Icons
 import { IconBasket, IconSupport } from "../../../../assets/icons";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
+
+//Business
+import { UserLogoutBusiness } from "../../../../business/authentication/Login";
+import { userLogout } from "../../../../redux/action/AuthenticationAction";
 
 function Header() {
   const [focus, setFocus] = useState(false);
+  const DISPATCH = useDispatch();
 
   const onSearch = () => {
     setFocus(true);
+  };
+
+  const UserLogout = async () => {
+    await UserLogoutBusiness().then((res) => {
+      if (res.status === DATA_STATUS.SUCCESS) {
+        cookie.remove("Usr_N");
+        cookie.remove("usrCks");
+        cookie.remove("Usr_I");
+        window.location.reload(false);
+        DISPATCH(userLogout());
+      }
+    });
   };
 
   return (
@@ -69,6 +91,10 @@ function Header() {
               <NavLink to="/dang-nhap">
                 <p>Đăng nhập</p>
               </NavLink>
+
+              <Link onClick={UserLogout}>
+                <p>Đăng xuất</p>
+              </Link>
             </div>
           </div>
         </div>
@@ -93,7 +119,9 @@ function Header() {
             </li>
 
             <li className="cate-item">
-              <NavLink to="/bai-dang/dich-vu-nong-nghiep">DV nông nghiệp</NavLink>
+              <NavLink to="/bai-dang/dich-vu-nong-nghiep">
+                DV nông nghiệp
+              </NavLink>
             </li>
             <li className="cate-item">
               <NavLink to="/bai-dang/r-d">R&D</NavLink>
