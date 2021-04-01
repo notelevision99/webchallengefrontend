@@ -25,10 +25,7 @@ function ListBlog(props) {
 
                                 <h3 className='description'>{blog.shortDescription}</h3>
                             </div>
-                            <h3 className='blog-date'>
-                                <strong>Ngày đăng: </strong>
-                                {new Date(blog.createdDate).toLocaleDateString()}
-                            </h3>
+                            <h3 className='blog-date'>{new Date(blog.createdDate).toLocaleDateString()}</h3>
                         </div>
                         <br />
                         <hr />

@@ -1,0 +1,26 @@
+.dialog {
+    font-display: 20px;
+
+    &-title {
+        h2 {
+            font-size: large;
+            color: $primary;
+            font-weight: 700;
+        }
+    }
+
+    &-description {
+        color: black;
+        font-weight: 700;
+        font-size: large !important;
+        font-family: 'roboto';
+    }
+    &-button {
+        color: $primary !important;
+        border: none;
+    }
+    .MuiButton-label {
+        font-size: small;
+        font-family: 'roboto';
+    }
+}

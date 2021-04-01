@@ -1,4 +1,3 @@
-import banner from '../../../../assets/images/banner/banner-2.jpg';
 import { IconEdit, IconHome, IconLocationCity, IconPerson, IconPhone, IconPlace } from '../../../../assets/icons';
 import { Redirect, useHistory } from 'react-router';
 import { useEffect, useState } from 'react';
@@ -7,6 +6,7 @@ import axios from 'axios';
 import { API_URL } from '../../../../helpers/user/urlCallAxios';
 import { showToastSuccess } from '../../../../helpers/admin/toastNotify';
 import CheckoutSuccess from './CheckoutSuccess';
+import Cookies from 'js-cookie';
 
 function Checkout() {
     const history = useHistory();
@@ -21,11 +21,11 @@ function Checkout() {
     const [districts, setDistricts] = useState([]);
 
     //Info checkout
-    const [userID, setUserID] = useState('890ef943-fda8-4ac4-9fb7-812e75854450');
-    const [username, setUsername] = useState('client');
+    const [userID, setUserID] = useState('');
+    const [username, setUsername] = useState('');
     const [province, setProvince] = useState('Thành phố Hồ Chí Minh');
     const [district, setDistrict] = useState('Quận 10');
-    const [address, setAddress] = useState('304/13 Hòa Hưng P13 Q.10');
+    const [address, setAddress] = useState('304/13 Hòa Hưng P.13 Q.10');
 
     const [provinceModal, setProvinceModal] = useState(province);
     const [districtModal, setDistrictModal] = useState(district);
@@ -33,11 +33,16 @@ function Checkout() {
 
     useEffect(() => {
         let cartLocal = localStorage.getItem('cart');
+        let userID = Cookies.get('Usr_I');
+        let username = Cookies.get('Usr_N');
+
         if (cartLocal) {
             setCart(JSON.parse(cartLocal));
         }
 
         setTotalPrice(sumPrice);
+        setUsername(username);
+        setUserID(userID);
 
         getProvinces();
     }, [checkoutSuccess]);
