@@ -3,43 +3,46 @@ import { useHistory } from 'react-router';
 import { useEffect, useState } from 'react';
 import formatVND from '../../../../helpers/user/formatVND';
 import EmptyCart from './EmptyCart';
+import DraggableDialog from '../../../../helpers/user/Dialog';
+import Cookies from 'js-cookie';
+import React from 'react';
 
 function Cart() {
     const history = useHistory();
 
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')));
     const [totalPrice, setTotalPrice] = useState(0);
 
-    const onClickNextCheckout = () => {
-        history.push('/thanh-toan');
-    };
+    //Dialog
+    const [open, setOpen] = React.useState(false);
 
-    const sumPrice = () => {
+    useEffect(() => {
+        if (cart != null) {
+            sumPrice(cart);
+        }
+    }, []);
+
+    /* ----- Sum Price ----- */
+    const sumPrice = (cart) => {
         let sum = 0;
         cart.forEach((element) => {
             sum += element.price * element.quantity;
         });
 
-        return sum;
+        setTotalPrice(sum);
     };
 
-    useEffect(() => {
-        let cartLocal = localStorage.getItem('cart');
-        if (cartLocal) {
-            setCart(JSON.parse(cartLocal));
-            setTotalPrice(sumPrice);
-        }
-    }, []);
-
+    /* ----- Quantity Change ----- */
     const updateFieldChanged = (index) => (e) => {
         let newCart = [...cart]; // copying the old datas array
         newCart[index].quantity = Number.parseInt(e.target.value); // replace e.target.value with whatever you want to change it to
         setCart(newCart); // ??
         localStorage.setItem('cart', JSON.stringify(newCart));
 
-        setTotalPrice(sumPrice);
+        sumPrice(newCart);
     };
 
+    /* ----- Delete Item ----- */
     const deleteItem = (index) => {
         let newCart = [...cart];
 
@@ -47,13 +50,37 @@ function Cart() {
             newCart.splice(index, 1);
         }
 
+        if (newCart.length === 0) {
+            newCart = null;
+            localStorage.removeItem('cart');
+        } else {
+            localStorage.setItem('cart', JSON.stringify(newCart));
+        }
+
         setCart(newCart);
-        localStorage.setItem('cart', JSON.stringify(newCart));
+        sumPrice(newCart);
     };
+
+    /* ----- Dialog Handle ----- */
+    const handleClose = () => {
+        setOpen(false);
+    };
+    const submitLogin = () => {
+        history.push('/dang-nhap');
+    };
+    const onClickNextCheckout = () => {
+        const user = Cookies.get('usrCks');
+        if (user === 'User') {
+            history.push('/thanh-toan');
+        } else {
+            setOpen(true);
+        }
+    };
+
     return (
         <>
             <div className='after-header'></div>
-            {cart.length > 0 ? (
+            {cart !== null ? (
                 <div className='cart-container'>
                     <div className='cart'>
                         <div className='card'>
@@ -101,6 +128,7 @@ function Cart() {
                             </div>
                         </div>
                     </div>
+                    <DraggableDialog open={open} handleClose={handleClose} submit={submitLogin} />
                 </div>
             ) : (
                 <EmptyCart />

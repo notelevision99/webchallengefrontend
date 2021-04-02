@@ -1,57 +1,60 @@
-@import './global/fonts';
-@import './global/reset';
-@import './global/variable';
-@import './global/mixin';
+@import "./global/fonts";
+@import "./global/reset";
+@import "./global/variable";
+@import "./global/mixin";
 
 // css global class
-@import './global/global';
+@import "./global/global";
 
 // commom component
-@import './atom/header.scss';
-@import './atom/scrollToTop.scss';
-@import './atom/footer.scss';
+@import "./atom/header.scss";
+@import "./atom/scrollToTop.scss";
+@import "./atom/footer.scss";
 
 // Home page
-@import './components/homePage/Slide.scss';
-@import './components/homePage/Overview.scss';
-@import './components/homePage/Introduce.scss';
-@import './components/homePage/CounterUp.scss';
-@import './components/homePage/Technology.scss';
-@import './components/homePage/HomeNews.scss';
-@import './components/homePage/BusinessProduct.scss';
-@import './components/homePage/BusinessAreas.scss';
+@import "./components/homePage/Slide.scss";
+@import "./components/homePage/Overview.scss";
+@import "./components/homePage/Introduce.scss";
+@import "./components/homePage/CounterUp.scss";
+@import "./components/homePage/Technology.scss";
+@import "./components/homePage/HomeNews.scss";
+@import "./components/homePage/BusinessProduct.scss";
+@import "./components/homePage/BusinessAreas.scss";
 
 // Product Page
-@import './pages/ProductPage.scss';
-@import './components/productPage/ListProduct.scss';
-@import './components/productPage/SideBar.scss';
-@import './components/productPage/MainContent.scss';
-@import './components/productPage/Tools.scss';
-@import './components/productPage/ProductItem.scss';
-@import './components/productDetailPage/ProductDetail.scss';
+@import "./pages/ProductPage.scss";
+@import "./components/productPage/ListProduct.scss";
+@import "./components/productPage/SideBar.scss";
+@import "./components/productPage/MainContent.scss";
+@import "./components/productPage/Tools.scss";
+@import "./components/productPage/ProductItem.scss";
+@import "./components/productDetailPage/ProductDetail.scss";
 
 //Blog Page
-@import './components/blogPage/Banner.scss';
-@import './components/blogPage/Blog.scss';
-@import './components/blogPage/Featured.scss';
-@import './components/blogPage/BlogDetail.scss';
-@import './components/blogPage/BlogRelate.scss';
+@import "./components/blogPage/Banner.scss";
+@import "./components/blogPage/Blog.scss";
+@import "./components/blogPage/Featured.scss";
+@import "./components/blogPage/BlogDetail.scss";
+@import "./components/blogPage/BlogRelate.scss";
 
 //Category Card
-@import './components/categoryCard/CategoryCard.scss';
+@import "./components/categoryCard/CategoryCard.scss";
 
 // No Match
-@import './components/noMatch/NoMatch.scss';
+@import "./components/noMatch/NoMatch.scss";
 
 // Cart Page
-@import './components/cartPage/Cart.scss';
-@import './components/cartPage/EmptyCart.scss';
+@import "./components/cartPage/Cart.scss";
+@import "./components/cartPage/EmptyCart.scss";
 
 // CheckoutPage
-@import './components/checkoutPage/CheckoutPage.scss';
+@import "./components/checkoutPage/CheckoutPage.scss";
 
 // LoginPage
-@import './components/loginPage/Login.scss';
+@import "./components/loginPage/Login.scss";
 
 //Signup Page
-@import './components/signupPage/Signup.scss';
+@import "./components/signupPage/Signup.scss";
+
+//Dialog
+@import "./components/Dialog/Dialog.scss";
