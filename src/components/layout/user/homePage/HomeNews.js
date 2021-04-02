@@ -6,11 +6,12 @@ import HomeNewsBG from "../../../../assets/images/bg/news.jpg";
 
 //icons
 import ArrowRightAltIcon from "@material-ui/icons/ArrowRightAlt";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import Reveal from "react-reveal/Reveal";
 
 function HomeNews({ blog }) {
   console.log(blog);
+  const HISTORY = useHistory();
   const newsArr = [
     {
       title:
@@ -31,10 +32,14 @@ function HomeNews({ blog }) {
     },
   ];
 
+  const onClickTitle = (id) => {
+    HISTORY.push("/bai-dang/tin-tuc-nong-nghiep/" + id)
+  }
+
   const renderNews = () =>
     blog.map((num, i) => (
       <div className="hn-item" key={i}>
-        <h5 className="hn-item--title">{num.title}</h5>
+        <h5 className="hn-item--title" onClick = {() => onClickTitle(num.blogId)}>{num.title}</h5>
         <small className="hn-item--date">{num.createdDate}</small>
       </div>
     ));
@@ -49,7 +54,7 @@ function HomeNews({ blog }) {
           {renderNews()}
 
           <div className="homenews__lasted--viewmore">
-            <NavLink to="/tin-tuc" className="cta">
+            <NavLink to="/bai-dang/tin-tuc-nong-nghiep" className="cta">
               <span>Xem tất cả các tin</span>
               <svg width="13px" height="10px" viewBox="0 0 13 10">
                 <path d="M1,5 L11,5"></path>

@@ -25,9 +25,12 @@ function Cart() {
     /* ----- Sum Price ----- */
     const sumPrice = (cart) => {
         let sum = 0;
-        cart.forEach((element) => {
-            sum += element.price * element.quantity;
-        });
+        if(cart !== null) {
+            cart.forEach((element) => {
+                sum += element.price * element.quantity;
+            });
+        }
+
 
         setTotalPrice(sum);
     };

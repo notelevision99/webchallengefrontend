@@ -23,16 +23,18 @@ export default class Orders extends React.Component {
     }
 
     componentDidMount() {
-        const urlGetOrders = `${API_URL}/api/orders?&pageNumber=1&pageSize=10`;
+        const urlGetOrders = `${API_URL}/api/orders?&pageNumber=1&pageSize=20`;
         try {
             axios.get(urlGetOrders, { withCredentials: true }).then((res) => {
                 this.setState({
                     orders: res.data.data,
                 });
             });
+            
         } catch (error) {
             console.log(error);
         }
+        
     }
 
     showModal(id) {

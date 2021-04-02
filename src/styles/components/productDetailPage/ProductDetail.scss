@@ -43,4 +43,20 @@
 			}
 		}
 	}
+	.btn-container {
+		padding-top: 2rem;
+		display: flex;
+		justify-content: center;
+
+		.btn{
+			color: gray;
+			font-size: large;
+		}
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.info-product-box {
+		display: grid;
+	}
 }

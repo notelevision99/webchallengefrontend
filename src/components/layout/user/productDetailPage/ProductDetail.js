@@ -120,6 +120,8 @@ function ProductDetail() {
           >
             {renderSlides(productDetail.photos)}
           </Swiper>
+
+          <div className="btn-container"><button className="btn btn-warning " onClick={addCart}>Đặt hàng</button></div>
         </div>
         {/* ===x=== Slide ===x=== */}
         {productDetail !== null && (

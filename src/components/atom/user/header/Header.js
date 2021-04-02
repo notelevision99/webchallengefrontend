@@ -88,10 +88,10 @@ function Header({ userOnRedux, user }) {
 
             {user || userOnRedux.id !== 0 ? (
               <div className="menu--top--right">
-                {/* <NavLink to="/gio-hang">
+                <NavLink to="/gio-hang">
                   <IconBasket className="header-icon icon-mtr" />
                   <p>Mua Hàng</p>
-                </NavLink> */}
+                </NavLink>
 
                 <Link>
                   <p>Xin chào {user ? user : userOnRedux.name}!</p>
