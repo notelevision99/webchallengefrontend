@@ -45,8 +45,8 @@ $ab-bt: 1.5%;
           bottom: -5%;
         }
 
-        @media screen and (max-width: $xxs-min) {
-          width: 50%;
+        @media screen and (max-width: $md-phone) {
+          width: 70%;
         }
       }
 
@@ -78,7 +78,7 @@ $ab-bt: 1.5%;
         right: 0%;
         bottom: $ab-bt;
 
-        @media screen and (max-width: $sm-min) {
+        @media screen and (max-width: $md-phone) {
           right: 9%;
           bottom: -5%;
         }

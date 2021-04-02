@@ -12,8 +12,8 @@
   }
 
   button {
-    background-color: #fff;
-    border: 1px solid #9591e9;
+    background-color: $white;
+    border: 1px solid $lightGreen;
     margin: 0 5px;
     outline: none;
 
@@ -22,12 +22,12 @@
     transition: all 0.1s linear;
 
     .MuiSvgIcon-root {
-      color: #9591e9;
+      color: $lightGreen;
       padding-top: 2px;
     }
 
     &.active {
-      background-color: #eeeefd;
+      background-color: $white;
     }
   }
 
@@ -37,6 +37,14 @@
 
     @media screen and (max-width: $md-phone) {
       display: none;
+    }
+  }
+
+  &__search {
+    input {
+      border: 1px solid $black;
+      border-radius: 7px;
+      padding-left: 10px;
     }
   }
 

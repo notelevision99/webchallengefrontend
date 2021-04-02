@@ -46,9 +46,7 @@ function Footer() {
 
             <p className="heading">Địa chỉ</p>
 
-            <p className="text">
-              Số 1 Lương Định Của, Phương Mai, Đống Đa, Hàng Nội
-            </p>
+            <p className="text">Số 2 Đường 2A, Biên Hoà, Đồng Nai</p>
           </div>
 
           <div className="footer__info--item">

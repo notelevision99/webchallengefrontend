@@ -10,6 +10,7 @@ import { NavLink } from "react-router-dom";
 import Reveal from "react-reveal/Reveal";
 
 function HomeNews({ blog }) {
+  console.log(blog);
   const newsArr = [
     {
       title:
@@ -34,7 +35,7 @@ function HomeNews({ blog }) {
     blog.map((num, i) => (
       <div className="hn-item" key={i}>
         <h5 className="hn-item--title">{num.title}</h5>
-        {/* <small className="hn-item--date">{num.date}</small> */}
+        <small className="hn-item--date">{num.createdDate}</small>
       </div>
     ));
 

@@ -22,7 +22,7 @@ function Technology() {
       image: Img1,
       title: "công nghệ chọn tạo giống cây trống",
       text:
-        "Vinaseed là doanh nghiệp KHCN đầu tiên trong ngành giống cây trồng Việt Nam, tiên phong trong hoạt động nghiên cứu, ứng dụng và chuyển giao công nghệ với các giải pháp đột phá, đi trước và định hướng thị trường. Hệ thống cơ sở hạ tầng phục vụ nghiên cứu hiện đại, đội ngũ chuyên gia hùng hậu, nhân sự trên 1000 lao động với 80% có trình độ đại học và trên đại học hoàn toàn làm chủ công nghệ chọn tạo giống tiên tiến trên thế giới, công nghệ sản xuất hạt lai, công nghệ sản xuất nông nghiệp 4.0.",
+        "CPseed là doanh nghiệp KHCN đầu tiên trong ngành giống cây trồng Việt Nam, tiên phong trong hoạt động nghiên cứu, ứng dụng và chuyển giao công nghệ với các giải pháp đột phá, đi trước và định hướng thị trường. Hệ thống cơ sở hạ tầng phục vụ nghiên cứu hiện đại, đội ngũ chuyên gia hùng hậu, nhân sự trên 1000 lao động với 80% có trình độ đại học và trên đại học hoàn toàn làm chủ công nghệ chọn tạo giống tiên tiến trên thế giới, công nghệ sản xuất hạt lai, công nghệ sản xuất nông nghiệp 4.0.",
     },
 
     {

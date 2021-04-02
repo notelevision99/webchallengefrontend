@@ -34,8 +34,8 @@ function Introduce() {
       > */}
       <Fade left>
         <h1 className="introduce--title">
-          Vinaseed là đoan nghiệp độc lập trực thuộc Bộ Nông Nghiệp và Phát
-          Triển Nông thôn
+          CPseed là đoan nghiệp độc lập trực thuộc Bộ Nông Nghiệp và Phát Triển
+          Nông thôn
         </h1>
       </Fade>
 
@@ -44,7 +44,7 @@ function Introduce() {
           Được thành lập từ năm 1968. Với sự đổi mới quản trị DN, chiến lược lấy
           KHCN làm nền tảng và động lực nâng cao năng lực cạnh tranh, huy động
           tối đa các nguồn lực xã hội cùng tham gia phát triển công ty, sau 15
-          năm CPH, Vinaseed đã trở thành Tập đoàn nông nghiệp có quy mô và thị
+          năm CPH, CPseed đã trở thành Tập đoàn nông nghiệp có quy mô và thị
           phần lớn nhất Việt Nam.
         </p>
       </Fade>
