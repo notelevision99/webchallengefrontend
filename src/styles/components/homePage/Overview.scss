@@ -1,4 +1,7 @@
 .overview {
+  @media screen and (max-width: $md-phone) {
+    margin: 2rem 0;
+  }
   &__wrap {
     width: 80%;
     margin: auto;
@@ -9,6 +12,21 @@
       width: calc(80% / 3);
       height: 35rem;
       transition: all 0.3s;
+
+      @media screen and (max-width: $md-phone) {
+        width: 50%;
+        height: 31rem;
+
+        margin: 2rem 0;
+      }
+
+      @media screen and (max-width: $sm-phone) {
+        width: 65%;
+      }
+
+      @media screen and (max-width: $xxs-min) {
+        width: 87%;
+      }
 
       &:hover {
         transform: scale(0.95);
@@ -31,6 +49,14 @@
       top: -7.5rem;
 
       z-index: 10;
+
+      @media screen and (max-width: $md-phone) {
+        position: unset;
+
+        top: 0;
+
+        flex-direction: column;
+      }
 
       &__box {
         width: 100%;
@@ -55,8 +81,12 @@
             margin: auto;
             transition: all 0.3s;
 
-            @media screen and (max-width: 992px) {
+            @media screen and (max-width: $sm-min) {
               width: 8rem;
+            }
+
+            @media screen and (max-width: $xs-min) {
+              width: 6rem;
             }
           }
 
@@ -75,16 +105,28 @@
               background: $white;
             }
 
-            @media screen and (max-width: 992px) {
+            @media screen and (max-width: $sm-min) {
               font-size: 2rem;
+            }
+
+            @media screen and (max-width: $xs-min) {
+              font-size: 1.6rem;
             }
           }
 
           .v-des {
             font-size: 1.4rem;
 
-            @media screen and (max-width: 992px) {
+            @media screen and (max-width: $sm-min) {
               font-size: 1.2rem;
+            }
+
+            @media screen and (max-width: $xs-min) {
+              font-size: 1.1rem;
+            }
+
+            @media screen and (max-width: $md-phone) {
+              font-size: 1.3rem;
             }
           }
         }

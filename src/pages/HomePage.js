@@ -10,7 +10,7 @@ import Overview from "../components/layout/user/homePage/Overview";
 import Slide from "../components/layout/user/homePage/Slide";
 import Technology from "../components/layout/user/homePage/Technology";
 
-function HomePage() {
+function HomePage({ blog }) {
   return (
     <>
       <Slide />
@@ -18,7 +18,7 @@ function HomePage() {
       <Introduce />
       <CounterUp />
       <Technology />
-      <HomeNews />
+      <HomeNews blog={blog} />
       <BusinessProduct />
       <BusinessAreas />
     </>

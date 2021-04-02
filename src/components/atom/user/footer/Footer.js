@@ -30,6 +30,10 @@ function Footer() {
   return (
     <div className="footer">
       <div className="footer__container">
+        <div className="footer__res">
+          <img src={Logo} />
+        </div>
+
         <div className="footer__info">
           <div className="footer__info--item">
             <img src={Logo} />
@@ -64,7 +68,7 @@ function Footer() {
 
             <p className="heading">Email</p>
 
-            <p className="text">nsc@vinaseed.com.vn</p>
+            <p className="text">nsc@cpseed.com</p>
           </div>
 
           <div className="footer__info--item">

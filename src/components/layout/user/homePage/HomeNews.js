@@ -9,7 +9,7 @@ import ArrowRightAltIcon from "@material-ui/icons/ArrowRightAlt";
 import { NavLink } from "react-router-dom";
 import Reveal from "react-reveal/Reveal";
 
-function HomeNews() {
+function HomeNews({ blog }) {
   const newsArr = [
     {
       title:
@@ -31,10 +31,10 @@ function HomeNews() {
   ];
 
   const renderNews = () =>
-    newsArr.map((num, i) => (
+    blog.map((num, i) => (
       <div className="hn-item" key={i}>
         <h5 className="hn-item--title">{num.title}</h5>
-        <small className="hn-item--date">{num.date}</small>
+        {/* <small className="hn-item--date">{num.date}</small> */}
       </div>
     ));
 

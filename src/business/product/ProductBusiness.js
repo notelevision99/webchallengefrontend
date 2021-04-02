@@ -4,6 +4,8 @@ import {
   GetCateProductERP,
   FilterByCateERP,
   GetProductDetailERP,
+  FilterByCpnERP,
+  FilterByWeightERP,
 } from "../../services/ResProduct";
 
 const GetProductBusiness = (pageNumber) => {
@@ -78,6 +80,54 @@ const FilterByCateBusiness = (cateId) => {
   }
 };
 
+const FilterByCpnBusiness = (something) => {
+  try {
+    return new Promise(async (res, rej) => {
+      let filterred = await FilterByCpnERP(something);
+
+      if (filterred.status === DATA_STATUS.SUCCESS) {
+        let customData = filterred.data.data;
+
+        res({
+          data: customData,
+          status: DATA_STATUS.SUCCESS,
+        });
+      } else {
+        rej(filterred);
+      }
+    });
+  } catch (error) {
+    error({
+      data: [],
+      status: DATA_STATUS.FAILED,
+    });
+  }
+};
+
+const FilterByWeightBusiness = (something) => {
+  try {
+    return new Promise(async (res, rej) => {
+      let filterred = await FilterByWeightERP(something);
+
+      if (filterred.status === DATA_STATUS.SUCCESS) {
+        let customData = filterred.data.data;
+
+        res({
+          data: customData,
+          status: DATA_STATUS.SUCCESS,
+        });
+      } else {
+        rej(filterred);
+      }
+    });
+  } catch (error) {
+    error({
+      data: [],
+      status: DATA_STATUS.FAILED,
+    });
+  }
+};
+
 const GetProductDetailBusiness = (urlSeo) => {
   try {
     return new Promise(async (res, rej) => {
@@ -107,4 +157,6 @@ export {
   GetCateProductBusiness,
   FilterByCateBusiness,
   GetProductDetailBusiness,
+  FilterByCpnBusiness,
+  FilterByWeightBusiness,
 };

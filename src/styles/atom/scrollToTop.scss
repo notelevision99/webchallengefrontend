@@ -24,10 +24,19 @@
 
   animation: ani 1s ease-in-out infinite;
 
+  @media screen and (max-width: $xs-min) {
+    width: 4rem;
+    height: 4rem;
+  }
+
   p {
     text-align: center;
     padding: 0 0 0.7rem 0;
     transform: rotate(90deg);
+
+    @media screen and (max-width: $xs-min) {
+      padding: 0px 32px 8px 0px;
+    }
   }
 
   &.active {

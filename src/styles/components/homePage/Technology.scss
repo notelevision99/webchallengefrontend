@@ -8,12 +8,27 @@ $ab-bt: 1.5%;
 
   position: relative;
 
+  @media screen and (max-width: $md-phone) {
+    display: block;
+    margin: 8rem auto;
+  }
+
   &__img {
     width: 50%;
 
     img {
       width: 100%;
       height: 60rem;
+    }
+
+    @media screen and (max-width: $md-phone) {
+      width: 80%;
+      margin: auto;
+
+      img {
+        width: 100%;
+        height: 35rem;
+      }
     }
 
     .slick-slider {
@@ -26,7 +41,12 @@ $ab-bt: 1.5%;
         bottom: $ab-bt;
 
         @media screen and (max-width: $sm-min) {
-          right: 1.6%;
+          left: 9%;
+          bottom: -5%;
+        }
+
+        @media screen and (max-width: $xxs-min) {
+          width: 50%;
         }
       }
 
@@ -46,12 +66,22 @@ $ab-bt: 1.5%;
         position: absolute;
         right: 2%;
         bottom: $ab-bt;
+
+        @media screen and (max-width: $sm-min) {
+          right: 12%;
+          bottom: -5%;
+        }
       }
 
       .nextArrow {
         position: absolute;
         right: 0%;
         bottom: $ab-bt;
+
+        @media screen and (max-width: $sm-min) {
+          right: 9%;
+          bottom: -5%;
+        }
       }
 
       .tech-paging {
@@ -64,6 +94,12 @@ $ab-bt: 1.5%;
 
             color: rgba($color: #000000, $alpha: 0.5);
             transition: all 0.3s;
+
+            @media screen and (max-width: $xs-min) {
+              font-size: 1.4rem;
+              margin-right: 1.3rem;
+            }
+
             &.slick-active {
               color: $lightGreen;
               padding-bottom: 0.1rem;
@@ -91,12 +127,26 @@ $ab-bt: 1.5%;
 
     margin: 0rem 0 4rem 10rem;
 
+    @media screen and (max-width: $xs-min) {
+      width: 100%;
+      margin: 0rem 0 4rem 6rem;
+    }
+
+    @media screen and (max-width: $md-phone) {
+      width: 80%;
+      margin: 1rem auto 0;
+    }
+
     &--title-main {
       font-size: 3.4rem;
       // text-transform: uppercase;
       color: $primary;
 
       margin-bottom: 1.5rem;
+
+      @media screen and (max-width: $xs-min) {
+        font-size: 2.8rem;
+      }
     }
 
     &--title-small {
@@ -105,6 +155,10 @@ $ab-bt: 1.5%;
       margin-bottom: 1rem;
 
       transition: all 0.3s;
+
+      @media screen and (max-width: $xs-min) {
+        font-size: 2rem;
+      }
 
       &:after {
         content: "";
@@ -123,6 +177,10 @@ $ab-bt: 1.5%;
 
       transition: all 0.3s;
       margin-top: 2rem;
+
+      @media screen and (max-width: $xs-min) {
+        font-size: 1.4rem;
+      }
     }
   }
 }

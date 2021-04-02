@@ -2,6 +2,14 @@
   width: 67%;
   margin: 15rem auto;
 
+  @media screen and (max-width: $xs-min) {
+    margin: 10rem auto;
+  }
+
+  @media screen and (max-width: $md-phone) {
+    margin: 8rem auto;
+  }
+
   &__title {
     width: 70%;
 
@@ -13,6 +21,25 @@
 
     border-bottom: 1px solid rgba($color: #000000, $alpha: 0.3);
     margin: 1rem auto 2rem;
+
+    @media screen and (max-width: $xs-min) {
+      font-size: 3rem;
+      width: 80%;
+    }
+
+    @media screen and (max-width: $md-phone) {
+      font-size: 2.8rem;
+    }
+
+    @media screen and (max-width: $sm-phone) {
+      font-size: 2.4rem;
+    }
+
+    @media screen and (max-width: $sm-phone) {
+      width: 90%;
+      font-size: 1.8rem;
+      border: none;
+    }
 
     span {
       background: #fff;
@@ -27,11 +54,26 @@
       .slick-prev:before,
       .slick-next:before {
         color: $primary;
+
+        @media screen and (max-width: $md-phone) {
+          display: none;
+        }
+      }
+
+      .bp-item {
+        img {
+          width: 70%;
+          margin: auto;
+        }
       }
     }
 
     img {
       margin: auto;
+
+      @media screen and (max-width: $xs-min) {
+        width: 65%;
+      }
     }
 
     h5 {

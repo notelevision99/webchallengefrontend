@@ -54,6 +54,7 @@ import {
 } from "./business/product/ProductBusiness";
 import { GetCompanyBusiness } from "./business/product/CompanyBusiness";
 import { GetWeightBusiness } from "./business/product/WeightBusiness";
+import { GetBlogBusiness } from "./business/blogs/BlogBusiness";
 // Action redux
 import {
   getProducts,
@@ -61,6 +62,7 @@ import {
   getCompany,
   getWeight,
 } from "./redux/action/ProductAction";
+
 import BeginAtTop from "./components/atom/user/action/BeginAtTop";
 import ScrollTopTop from "./components/atom/user/action/ScrollTopTop";
 
@@ -68,9 +70,10 @@ import ScrollTopTop from "./components/atom/user/action/ScrollTopTop";
 let getCookie = () => {
   const userCookie = cookie.get("Usr_N");
   if (userCookie) {
+    console.log("nam dung");
     return userCookie;
   } else {
-    return "";
+    return false;
   }
 };
 
@@ -82,11 +85,6 @@ function App() {
   const userOnRedux = useSelector(
     (state) => state.AuthenticationReducer.userInfo
   );
-
-  let nam = userOnRedux;
-
-  console.log("user => ", userOnRedux);
-  console.log("user nam => ", nam);
 
   // Get products from API
   const GetProduct = async (pageNumber) => {
@@ -129,17 +127,30 @@ function App() {
     });
   };
 
+  // Get blogs from API
+  const [blog, setBlog] = useState([]);
+
+  const GetBlog = async (pageNumber) => {
+    await GetBlogBusiness(pageNumber).then((res) => {
+      if (res.status === DATA_STATUS.SUCCESS) {
+        const blogs = res.data.data;
+        setBlog(blogs);
+      }
+    });
+  };
+
   useEffect(() => {
     GetProduct(1);
     GetCateProduct();
     GetCompany();
     GetWeight();
-  });
+    GetBlog(1);
+  }, []);
 
   return (
     <Router>
       <BeginAtTop />
-      <ScrollTopTop />
+      <ScrollTopTop showBelow={250} />
       {/** -------------Chat FB Plugin --------------- */}
       <div id="fb-root"></div>
       <div
@@ -154,14 +165,13 @@ function App() {
       <Switch>
         {/* ----------- Client ----------- */}
         <Route exact path="/">
-          <Header />
-          <HomePage />
+          <Header user={user} userOnRedux={userOnRedux} />
+          <HomePage blog={blog} />
           <Footer />
         </Route>
 
         <Route exact path="/dang-ki">
           <SignUp />
-          <Footer />
         </Route>
 
         {user ? null : (
@@ -170,44 +180,48 @@ function App() {
           </Route>
         )}
 
+        {/* <Route exact path="/dang-nhap">
+          <LoginPage />
+        </Route> */}
+
         <Route exact path="/gioi-thieu">
-          <Header />
+          <Header user={user} userOnRedux={userOnRedux} />
           <AboutPage />
           <Footer />
         </Route>
 
         <Route exact path="/san-pham">
-          <Header />
+          <Header user={user} userOnRedux={userOnRedux} />
           <ProductPage GetProduct={GetProduct} />
           <Footer />
         </Route>
 
         <Route exact path="/gio-hang">
-          <Header />
+          <Header user={user} userOnRedux={userOnRedux} />
           <CartPage />
           <Footer />
         </Route>
 
         <Route exact path="/thanh-toan">
-          <Header />
+          <Header user={user} userOnRedux={userOnRedux} />
           <CheckoutPage />
           <Footer />
         </Route>
 
         <Route path="/san-pham/:urlSeo">
-          <Header />
+          <Header user={user} userOnRedux={userOnRedux} />
           <ProductDetailPage />
           <Footer />
         </Route>
 
         <Route exact path="/bai-dang/:urlSeoCategoryBlog">
-          <Header />
+          <Header user={user} userOnRedux={userOnRedux} />
           <BlogPage />
           <Footer />
         </Route>
 
         <Route exact path="/bai-dang/:urlSeoCategoryBlog/:urlSeoBlog">
-          <Header />
+          <Header user={user} userOnRedux={userOnRedux} />
           <BlogDetailPage />
           <Footer />
         </Route>

@@ -4,15 +4,21 @@ import Flip from "react-reveal/Flip";
 
 //Images
 import Icon from "../../../../assets/images/vision/vision.png";
+import Icon1 from "../../../../assets/images/pro/shovel.png";
+import Icon2 from "../../../../assets/images/pro/tractor.png";
+import Icon3 from "../../../../assets/images/pro/watering-can.png";
+import Icon4 from "../../../../assets/images/pro/farming.png";
+import Icon5 from "../../../../assets/images/pro/garden.png";
+import Icon6 from "../../../../assets/images/pro/tree (1).png";
 
 function BusinessProduct() {
   let products = [
-    { image: Icon, name: "Tên sản phẩm" },
-    { image: Icon, name: "Tên sản phẩm" },
-    { image: Icon, name: "Tên sản phẩm" },
-    { image: Icon, name: "Tên sản phẩm" },
-    { image: Icon, name: "Tên sản phẩm" },
-    { image: Icon, name: "Tên sản phẩm" },
+    { image: Icon1, name: "Công cụ" },
+    { image: Icon2, name: "Máy móc" },
+    { image: Icon3, name: "Vật dụng" },
+    { image: Icon4, name: "Phân bón" },
+    { image: Icon5, name: "Hạt giống" },
+    { image: Icon6, name: "Nông sản" },
   ];
 
   const renderSlides = () =>

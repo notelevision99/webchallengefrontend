@@ -7,4 +7,26 @@
     display: flex;
     flex-wrap: wrap;
   }
+
+  .pagpagination {
+    display: flex;
+    justify-content: center;
+
+    p {
+      color: black;
+      float: left;
+      padding: 8px 16px;
+      font-size: 1.6rem;
+      cursor: pointer;
+
+      &.active {
+        background-color: #4caf50;
+        color: white;
+      }
+
+      &:hover:not(.active) {
+        background-color: #ddd;
+      }
+    }
+  }
 }
