@@ -4,6 +4,10 @@
 
   text-align: center;
 
+  @media screen and (max-width: $md-phone) {
+    margin-top: 2rem;
+  }
+
   .test {
     height: 100%;
   }
@@ -11,9 +15,21 @@
   &--title {
     font-size: 3.6rem;
     padding-bottom: 2rem;
+
+    @media screen and (max-width: $xs-min) {
+      font-size: 3.2rem;
+    }
+
+    @media screen and (max-width: $md-phone) {
+      font-size: 2.8rem;
+    }
   }
 
   &--text {
     font-size: 1.6rem;
+
+    @media screen and (max-width: $md-phone) {
+      font-size: 1.4rem;
+    }
   }
 }

@@ -77,6 +77,7 @@ function LoginPage() {
 
   // Handle UI
   const [showPass, setShowPass] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
 
   const onShowPass = () => {
     setShowPass(!showPass);
@@ -104,16 +105,19 @@ function LoginPage() {
     const { username, password } = formLogin;
 
     await UserLoginBusiness(username, password).then((response) => {
+      console.log("nam", response.status);
       if (response.status === DATA_STATUS.SUCCESS) {
         const user = response.data;
+        console.log("nammm", user);
         if (user) {
-          console.log(user);
           Cookies.set("usrCks", `${user.roles}`, { expires: 2 });
           Cookies.set("Usr_N", `${user.name}`, { expires: 2 });
           Cookies.set("Usr_I", `${user.id}`, { expires: 2 });
           DISPATCH(userLogin(user));
           HISTORY.push("/");
         }
+      } else {
+        setShowAlert(true);
       }
     });
   };
@@ -122,6 +126,7 @@ function LoginPage() {
     <Login
       onShowPass={onShowPass}
       showPass={showPass}
+      showAlert={showAlert}
       onUsername={onUsername}
       onPassword={onPassword}
       onLogin={onLogin}

@@ -1,7 +1,14 @@
 import React from "react";
 import CheckBox from "./CheckBox";
 
-function Sidebar({ categories, onCategory, companies, weights }) {
+function Sidebar({
+  categories,
+  onCategory,
+  companies,
+  onCompany,
+  weights,
+  onWeight,
+}) {
   let renderCateCheckBox = (data) => {
     let result = null;
     if (data) {
@@ -39,7 +46,7 @@ function Sidebar({ categories, onCategory, companies, weights }) {
               className="inp-cbx"
               id={`${ele.weight}w`}
               type="checkbox"
-              //onChange={(event) => onCategory(event, ele)}
+              onChange={(event) => onWeight(event, ele)}
             />
             <label className="cbx" htmlFor={`${ele.weight}w`}>
               <span>
@@ -66,7 +73,7 @@ function Sidebar({ categories, onCategory, companies, weights }) {
               className="inp-cbx"
               id={ele.company}
               type="checkbox"
-              //onChange={(event) => onCategory(event, ele)}
+              onChange={(event) => onCompany(event, ele)}
             />
             <label className="cbx" htmlFor={ele.company}>
               <span>

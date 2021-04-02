@@ -9,7 +9,14 @@ import PersonIcon from "@material-ui/icons/Person";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import VisibilityOffIcon from "@material-ui/icons/VisibilityOff";
 
-function Login({ showPass, onShowPass, onUsername, onPassword, onLogin }) {
+function Login({
+  showPass,
+  onShowPass,
+  onUsername,
+  onPassword,
+  onLogin,
+  showAlert,
+}) {
   /* ===================== Handle UI ===================== */
   const [username, setUsername] = useState(false);
   const [password, setPassword] = useState(false);

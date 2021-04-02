@@ -7,6 +7,10 @@
 
   font-size: 1.4rem;
 
+  @media screen and (max-width: $xxs-min) {
+    flex-direction: column;
+  }
+
   button {
     background-color: #fff;
     border: 1px solid #9591e9;
@@ -30,9 +34,17 @@
   &__notificate {
     display: flex;
     align-items: center;
+
+    @media screen and (max-width: $md-phone) {
+      display: none;
+    }
   }
 
   &__sort {
     display: flex;
+
+    @media screen and (max-width: $xxs-min) {
+      margin: 3rem 0;
+    }
   }
 }

@@ -1,12 +1,38 @@
 .sidebar-pp {
   width: 20%;
 
+  @media screen and (max-width: $sm-min) {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @media screen and (max-width: $xxs-min) {
+    flex-direction: column;
+  }
+
   &__box {
     width: 80%;
     margin: auto;
 
     .cate {
       margin-bottom: 30px;
+
+      @media screen and (max-width: $sm-min) {
+        margin-left: 5rem;
+      }
+
+      @media screen and (max-width: $md-phone) {
+        margin-left: 3rem;
+      }
+
+      @media screen and (max-width: $sm-phone) {
+        margin-left: 1rem;
+      }
+
+      @media screen and (max-width: $xxs-min) {
+        margin-left: 5rem;
+      }
 
       input {
         display: none;
